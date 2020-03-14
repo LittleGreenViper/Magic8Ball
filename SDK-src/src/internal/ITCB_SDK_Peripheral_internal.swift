@@ -145,6 +145,46 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
             }
         }
     }
+    
+    /* ################################################################## */
+    /**
+     This method is called when the Central changes the value of one of the Characteristics in our Service.
+     
+     - parameter inPeripheralManager: The Peripheral Manager that experienced the change.
+     - parameter didReceiveWrite: The Write request objects, in an Array.
+     */
+    public func peripheralManager(_ inPeripheralManager: CBPeripheralManager, didReceiveWrite inWriteRequests: [CBATTRequest]) {
+        guard   1 == inWriteRequests.count,
+                let mutableChar = inWriteRequests[0].characteristic as? CBMutableCharacteristic,
+                let data = inWriteRequests[0].value,
+                let stringVal = String(data: data, encoding: .utf8) else {
+            return
+        }
+
+        mutableChar.value = data
+        
+        // We do this, because, on the Mac, you can get a subscription before the write.
+        if nil == central {
+            central = ITCB_SDK_Device_Central(inWriteRequests[0].central, owner: self)
+        }
+        
+        _sendQuestionAskedToAllObservers(device: central, question: stringVal)
+    }
+    
+    /* ################################################################## */
+    /**
+     - parameter inPeripheralManager: The Peripheral Manager that experienced the change.
+     */
+    public func peripheralManager(_ inPeripheralManager: CBPeripheralManager, central inCentral: CBCentral, didSubscribeTo inCharacteristic: CBCharacteristic) {
+        // We do this, because, on the Mac, you can get a subscription before the write.
+        if nil == central {
+            central = ITCB_SDK_Device_Central(inCentral, owner: self)
+        }
+        
+        if  let central = central as? ITCB_SDK_Device_Central {
+            central.subscribedChar = inCharacteristic
+        }
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -157,18 +197,45 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
     /// This is the Peripheral SDK that "owns" this device.
     internal var owner: ITCB_SDK_Peripheral!
     
+    /// This will be used to hold a subscribed Characteristic.
+    internal var subscribedChar: CBCharacteristic!
+
     /// This is the Central Core Bluetooth device associated with this instance.
-    internal var peripheralDeviceInstance: CBCentral! {
+    internal var centralDeviceInstance: CBCentral! {
         _peerInstance as? CBCentral
     }
-
+    
     /* ################################################################## */
     /**
-     Send the answer to the Central.
+     Initializer with CBCentral
+     
+     - parameter inCentral: The CBCentral peer instance for this instance.
+     - parameter owner: The Peripheral SDK instance that "owns" this device.
+     */
+    init(_ inCentral: CBCentral, owner inOwner: ITCB_SDK_Peripheral) {
+        super.init()
+        owner = inOwner
+        _peerInstance = inCentral
+        subscribedChar = nil
+    }
+    
+    /* ################################################################## */
+    /**
+     In the base class, all we do is send the "success" message to any observers.
+     
+     This should be called AFTER successfully sending the message.
 
      - parameter inAnswer: The answer.
      - parameter toQuestion: The question that was be asked.
      */
     public func sendAnswer(_ inAnswer: String, toQuestion inToQuestion: String) {
+        if  let peripheralManager = owner.peripheralManagerInstance,
+            let central = owner.central as? ITCB_SDK_Device_Central,
+            let centralDevice = central.centralDeviceInstance,
+            let answerCharacteristic = central.subscribedChar as? CBMutableCharacteristic,
+            let data = inAnswer.data(using: .utf8) {
+            peripheralManager.updateValue(data, for: answerCharacteristic, onSubscribedCentrals: [centralDevice])
+            owner._sendSuccessInSendingAnswerToAllObservers(device: self, answer: inAnswer, toQuestion: inToQuestion)
+        }
     }
 }
