@@ -3,7 +3,7 @@
 [Writing an SDK With Core Bluetooth](https://littlegreenviper.com/series/bluetooth/) ([Companion Repo](https://github.com/LittleGreenViper/Magic8Ball))
 =
 
-[Writing an SDK With Core Bluetooth – 19 – The Code](https://littlegreenviper.com/miscellany/bluetooth/itcb-19/) ([Repo Tag](https://github.com/LittleGreenViper/Magic8Ball/tree/itcb-19))
+[Writing an SDK With Core Bluetooth – 20 – Conclusion](https://littlegreenviper.com/miscellany/bluetooth/itcb-20/) ([Repo Tag](https://github.com/LittleGreenViper/Magic8Ball/tree/itcb-20))
 -
 
 This is a repo that will accompany [a series of posts on introduction to Core Bluetooth](https://littlegreenviper.com/series/bluetooth/).
