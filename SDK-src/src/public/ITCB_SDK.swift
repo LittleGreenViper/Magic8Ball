@@ -30,7 +30,7 @@ import Foundation   // Needed for the debug test.
  
  It is a Swift class, and this is the "base" class, meant to be specialized for Central and Peripheral variants.
  */
-public class ITCB_SDK: ITCB_SDK_Protocol {
+public class ITCB_SDK: NSObject, ITCB_SDK_Protocol {
     /* ################################################################## */
     /**
      Factory function for instantiating Peripherals.
@@ -98,6 +98,25 @@ public class ITCB_SDK: ITCB_SDK_Protocol {
      - returns: True, if the observer is currently in the list of SDK observers.
      */
     public func isObserving(_ inObserver: ITCB_Observer_Protocol) -> Bool { _isObserving(inObserver) }
+    
+    /* ################################################################## */
+    // MARK: - Internal Use Only -
+    /* ################################################################## */
+    /**
+     This is a typeless container for the manager object that wil be attached to this instance.
+     It is internal, and typeless, in order to avoid having to import Core Bluetooth.
+     The concrete instances will have specific casts. This is a stored property, so must be declared here.
+     It has to be declared `@objc dynamic`, because we need to be able to override it dynamically in subclass extensions.
+     */
+    @objc dynamic internal var _managerInstance: Any!
+
+    /* ################################################################## */
+    /**
+     Required for NSObject.
+     */
+    internal override init() {
+        super.init()
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -131,6 +150,7 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
      */
     internal override init() {
         super.init()
+        _ = _managerInstance    // This forces us to instantiate our manager.
         /* ########### */
         // TODO: Remove this code. It is here just to provide a test structure for the apps.
         for i in 0..<5 {
@@ -178,7 +198,7 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
          */
         internal override init() {
             super.init()
-        
+            _ = _managerInstance    // This forces us to instantiate our manager.
             /* ########### */
             // TODO: Remove this code. It is here just to provide a test structure for the apps.
             let centralTemp = ITCB_SDK_Device_Central()
