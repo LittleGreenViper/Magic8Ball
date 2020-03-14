@@ -29,6 +29,10 @@ internal let _static_ITCB_SDK_8BallServiceUUID = CBUUID(string: "8E38140A-27BE-4
 internal let _static_ITCB_SDK_8BallService_Question_UUID = CBUUID(string: "BDD37D7A-F66A-47B9-A49C-FE29FD235A77")
 /// This is the UUID for the "Answer" String Characteristic
 internal let _static_ITCB_SDK_8BallService_Answer_UUID = CBUUID(string: "349A0D7B-6215-4E2C-A095-AF078D737445")
+/// This is the minimum signal strength for Peripheral discovery.
+internal let _static_ITCB_SDK_RSSI_Min = -60
+/// This is the maximum signal strength for Peripheral discovery.
+internal let _static_ITCB_SDK_RSSI_Max = -20
 
 /* ###################################################################################################################################### */
 // MARK: - Main SDK Interface Base Class -
@@ -122,12 +126,36 @@ extension ITCB_SDK {
 }
 
 /* ###################################################################################################################################### */
+// MARK: - Special Comparator for the devices Array -
+/* ###################################################################################################################################### */
+/**
+ This extension implements a method like contains(_:), to compare the UUIDs of Peripherals.
+ */
+extension Array where Element == ITCB_Device_Peripheral_Protocol {
+    /* ################################################################## */
+    /**
+     This searches the Array for instances of a given device, comparing UUIDs
+     
+     - parameter inCBPeripheral: The device that we are comparing, but as a CBPeripheral.
+     
+     - returns: True, if the Array contains the device.
+     */
+    func contains(_ inCBPeripheral: CBPeripheral) -> Bool {
+        let peripheralStringID = inCBPeripheral.identifier.uuidString
+        guard let myself = self as? [ITCB_SDK_Device_Peripheral], !peripheralStringID.isEmpty else { return false }
+        return myself.reduce(false) { (current, nextItem) in
+            return current || nextItem.uuid == peripheralStringID
+        }
+    }
+}
+
+/* ###################################################################################################################################### */
 // MARK: - General Device Base Class -
 /* ###################################################################################################################################### */
 /**
  This is the genaral base class for Central and Peripheral devices.
  */
-internal class ITCB_SDK_Device {
+internal class ITCB_SDK_Device: NSObject {
     /// The name property to conform to the protocol.
     public var name: String = ""
     
@@ -136,6 +164,9 @@ internal class ITCB_SDK_Device {
     
     /// This is an internal stored property that is used to reference a Core Bluetooth peer instance (either a Central or Peripheral), associated with this device.
     internal var _peerInstance: CBPeer!
+
+    /// This is a String, representing a unique UUID for this device.
+    public var uuid: String!
     
     /* ################################################################## */
     /**
@@ -147,7 +178,7 @@ internal class ITCB_SDK_Device {
      */
     public func amIThisDevice(_ inDevice: ITCB_Device_Protocol) -> Bool {
         if let device = inDevice as? ITCB_SDK_Device {
-            return device === self
+            return device.uuid == uuid
         }
         
         return false

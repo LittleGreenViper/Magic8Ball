@@ -24,10 +24,12 @@ import Foundation
 import CoreBluetooth
 
 /* ###################################################################################################################################### */
-// MARK: - Main SDK Peripheral Variant Interface Class -
+// MARK: - Main SDK Peripheral Variant Computed Properties -
 /* ###################################################################################################################################### */
 /**
- These are the observer notification message senders.
+ This is the internal implementation of the SDK for the Peripheral Mode.
+ 
+ **IMPORTANT NOTE:** Peripheral Mode is not supported for WatchOS or TVOS. This file is only included in the iOS and MacOS framework targets.
  */
 internal extension ITCB_SDK_Peripheral {
     /* ################################################################## */
@@ -56,7 +58,29 @@ internal extension ITCB_SDK_Peripheral {
             super._managerInstance = newValue
         }
     }
+}
 
+/* ###################################################################################################################################### */
+// MARK: - Instance Methods -
+/* ###################################################################################################################################### */
+extension ITCB_SDK_Peripheral {
+    /* ################################################################## */
+    /**
+     This method will load or update a given Service with new or updated Characteristics.
+     
+     - parameter inMutableServiceInstance: The Service that we are adding the Characteristics to.
+     */
+    func _setCharacteristicsForThisService(_ inMutableServiceInstance: CBMutableService) {
+        let questionProperties: CBCharacteristicProperties = [.writeWithoutResponse]
+        let answerProperties: CBCharacteristicProperties = [.read, .notify]
+        let permissions: CBAttributePermissions = [.readable, .writeable]
+
+        let questionCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Question_UUID, properties: questionProperties, value: nil, permissions: permissions)
+        let answerCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Answer_UUID, properties: answerProperties, value: nil, permissions: permissions)
+        
+        inMutableServiceInstance.characteristics = [questionCharacteristic, answerCharacteristic]
+    }
+    
     /* ################################################################## */
     /**
      This sends the "An answer was successfully sent" message to all registered observers.
@@ -89,23 +113,6 @@ internal extension ITCB_SDK_Peripheral {
             }
         }
     }
-
-    /* ################################################################## */
-    /**
-     This method will load or update a given Service with new or updated Characteristics.
-     
-     - parameter inMutableServiceInstance: The Service that we are adding the Characteristics to.
-     */
-    func _setCharacteristicsForThisService(_ inMutableServiceInstance: CBMutableService) {
-        let questionProperties: CBCharacteristicProperties = [.writeWithoutResponse]
-        let answerProperties: CBCharacteristicProperties = [.read, .notify]
-        let permissions: CBAttributePermissions = [.readable, .writeable]
-
-        let questionCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Question_UUID, properties: questionProperties, value: nil, permissions: permissions)
-        let answerCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Answer_UUID, properties: answerProperties, value: nil, permissions: permissions)
-        
-        inMutableServiceInstance.characteristics = [questionCharacteristic, answerCharacteristic]
-    }
 }
 
 /* ###################################################################################################################################### */
@@ -131,9 +138,9 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
                 _setCharacteristicsForThisService(mutableServiceInstance)
                 // Add it to our manager instance.
                 inPeripheralManager.add(mutableServiceInstance)
-                // We have our primary Service in place. We can now advertise it.
+                // We have our primary Service in place. We can now advertise it. We announce that we can be connected.
                 inPeripheralManager.startAdvertising([CBAdvertisementDataServiceUUIDsKey: [mutableServiceInstance.uuid],
-                                               CBAdvertisementDataLocalNameKey: localName
+                                                      CBAdvertisementDataLocalNameKey: localName
                 ])
             }
         }
@@ -141,56 +148,27 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
 }
 
 /* ###################################################################################################################################### */
-// MARK: - Peripheral Device Base Class -
+// MARK: - Central Device Base Class -
 /* ###################################################################################################################################### */
 /**
- We need to keep in mind that Peripheral objects are actually owned by Central SDK instances.
+ We need to keep in mind that Central objects are actually owned by Peripheral SDK instances.
  */
-internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripheral_Protocol {
-    /// This is the Central SDK that "owns" this device.
-    internal var owner: ITCB_SDK_Central!
-
-    /// The question property to conform to the protocol.
-    public var question: String! = nil {
-        didSet {
-            owner._sendSuccessInAskingMessageToAllObservers(device: self)
-        }
-    }
-
-    /// The answer property to conform to the protocol.
-    /// We use this opportunity to let everyone know that the question has been answered.
-    public var answer: String! = nil {
-        didSet {
-            owner._sendQuestionAnsweredMessageToAllObservers(device: self)
-        }
-    }
+internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Protocol {
+    /// This is the Peripheral SDK that "owns" this device.
+    internal var owner: ITCB_SDK_Peripheral!
     
-    /// This is the Peripheral Core Bluetooth device associated with this instance.
-    internal var peripheralDeviceInstance: CBPeripheral! {
-        _peerInstance as? CBPeripheral
+    /// This is the Central Core Bluetooth device associated with this instance.
+    internal var peripheralDeviceInstance: CBCentral! {
+        _peerInstance as? CBCentral
     }
 
     /* ################################################################## */
     /**
-     In the base class, all we do is send the "success" message to any observers.
-     
-     This should be called AFTER successfully sending the message.
+     Send the answer to the Central.
 
-     - parameter inQuestion: The question to be asked.
+     - parameter inAnswer: The answer.
+     - parameter toQuestion: The question that was be asked.
      */
-    public func sendQuestion(_ inQuestion: String) {
-        self.question = inQuestion
-        /* ########### */
-        // TODO: Remove this code, after we get the Bluetooth working. This is just here to create mock behavior.
-        DispatchQueue.global().async {  // We use the global thread to simulate true async operation.
-            if 5 == Int.random(in: 0..<10) {
-                // We randomly (one out of 10 times) send an error message, instead of the question. We choose an unknown error rejection
-                self.owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.unknown(nil)))
-            } else {
-                self.answer = String(format: "SLUG-ANSWER-%02d", Int.random(in: 0..<20))
-            }
-        }
-        // END TODO
-        /* ########### */
+    public func sendAnswer(_ inAnswer: String, toQuestion inToQuestion: String) {
     }
 }
