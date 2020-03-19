@@ -113,6 +113,18 @@ extension ITCB_SDK_Peripheral {
             }
         }
     }
+    
+    /* ################################################################## */
+    /**
+     This sends a random answer to the central.
+     
+     - parameter inQuestion: The question asked by the Central.
+     */
+    func _sendRandomAnswerToThisQuestion(_ inQuestion: String) {
+        guard let central = central as? ITCB_SDK_Device_Central else { return }
+
+        central.sendAnswer(String(format: "SLUG-ANSWER-%02d", Int.random(in: 0..<20)), toQuestion: inQuestion)
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -165,10 +177,14 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
         
         // We do this, because, on the Mac, you can get a subscription before the write.
         if nil == central {
-            central = ITCB_SDK_Device_Central(inWriteRequests[0].central, owner: self)
+            // The reason that we instantiate this as an interim value, is because the base class property is the untyped one, and we want the type. This is the easiest way to do that.
+            let tempCentral = ITCB_SDK_Device_Central(inWriteRequests[0].central, owner: self)
+            tempCentral.question = stringVal    // We add the question to the Central's stored property, so it will know what to send back to the Central.
+            central = tempCentral
+        } else {    // If the Central subscription has already happened, then we simply do the send now.
+            _sendRandomAnswerToThisQuestion(stringVal)
+            central = nil
         }
-        
-        _sendQuestionAskedToAllObservers(device: central, question: stringVal)
     }
     
     /* ################################################################## */
@@ -181,8 +197,12 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
             central = ITCB_SDK_Device_Central(inCentral, owner: self)
         }
         
-        if  let central = central as? ITCB_SDK_Device_Central {
+        // If the Central has already asked the question, then we generate the random answer now.
+        if  let central = central as? ITCB_SDK_Device_Central,
+            let question = central.question {
             central.subscribedChar = inCharacteristic
+            _sendRandomAnswerToThisQuestion(question)
+            self.central = nil
         }
     }
 }
@@ -199,6 +219,9 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
     
     /// This will be used to hold a subscribed Characteristic.
     internal var subscribedChar: CBCharacteristic!
+    
+    /// This holds the question that was asked.
+    internal var question: String!
 
     /// This is the Central Core Bluetooth device associated with this instance.
     internal var centralDeviceInstance: CBCentral! {
