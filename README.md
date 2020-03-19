@@ -1,12 +1,9 @@
 ![Icon](icon.png)
 
-[Writing an SDK With Core Bluetooth](https://littlegreenviper.com/series/bluetooth/) ([Companion Repo](https://github.com/LittleGreenViper/Magic8Ball))
+[Improving an SDK With Core Bluetooth](https://littlegreenviper.com/series/bluetooth-2/) ([Companion Repo](https://github.com/LittleGreenViper/Magic8Ball))
 =
 
-[Writing an SDK With Core Bluetooth – 20 – Conclusion](https://littlegreenviper.com/miscellany/bluetooth/itcb-20/) ([Repo Tag](https://github.com/LittleGreenViper/Magic8Ball/tree/itcb-20))
--
-
-This is a repo that will accompany [a series of posts on introduction to Core Bluetooth](https://littlegreenviper.com/series/bluetooth/).
+This is a repo that will accompany [a series of posts on introduction to Core Bluetooth](https://littlegreenviper.com/series/bluetooth-2/).
 
 The "working code" for the repo is in the `SDK-Src` directory. This will be a simple framework project that implements a very simple "[Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball)" application that runs on two different Apple devices.
 

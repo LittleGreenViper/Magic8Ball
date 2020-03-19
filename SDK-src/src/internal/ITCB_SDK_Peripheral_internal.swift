@@ -47,8 +47,7 @@ internal extension ITCB_SDK_Peripheral {
     override var _managerInstance: Any! {
         get {
             if nil == super._managerInstance {
-                super._managerInstance = CBPeripheralManager()
-                peripheralManagerInstance.delegate = self   // TVOS doesn't seem to have a proper delegate initializer, so we have an extra step, here.
+                super._managerInstance = CBPeripheralManager(delegate: self, queue: nil)
             }
             
             return super._managerInstance
@@ -73,10 +72,11 @@ extension ITCB_SDK_Peripheral {
     func _setCharacteristicsForThisService(_ inMutableServiceInstance: CBMutableService) {
         let questionProperties: CBCharacteristicProperties = [.writeWithoutResponse]
         let answerProperties: CBCharacteristicProperties = [.read, .notify]
-        let permissions: CBAttributePermissions = [.readable, .writeable]
+        let questionPermissions: CBAttributePermissions = [.writeable]
+        let answerPermissions: CBAttributePermissions = [.readable]
 
-        let questionCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Question_UUID, properties: questionProperties, value: nil, permissions: permissions)
-        let answerCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Answer_UUID, properties: answerProperties, value: nil, permissions: permissions)
+        let questionCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Question_UUID, properties: questionProperties, value: nil, permissions: questionPermissions)
+        let answerCharacteristic = CBMutableCharacteristic(type: _static_ITCB_SDK_8BallService_Answer_UUID, properties: answerProperties, value: nil, permissions: answerPermissions)
         
         inMutableServiceInstance.characteristics = [questionCharacteristic, answerCharacteristic]
     }
@@ -113,6 +113,18 @@ extension ITCB_SDK_Peripheral {
             }
         }
     }
+    
+    /* ################################################################## */
+    /**
+     This sends a random answer to the central.
+     
+     - parameter inQuestion: The question asked by the Central.
+     */
+    func _sendRandomAnswerToThisQuestion(_ inQuestion: String) {
+        guard let central = central as? ITCB_SDK_Device_Central else { return }
+
+        central.sendAnswer(String(format: "SLUG-ANSWER-%02d", Int.random(in: 0..<20)), toQuestion: inQuestion)
+    }
 }
 
 /* ###################################################################################################################################### */
@@ -127,8 +139,9 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
      */
     public func peripheralManagerDidUpdateState(_ inPeripheralManager: CBPeripheralManager) {
         assert(inPeripheralManager === managerInstance)   // Make sure that we are who we say we are...
+        switch inPeripheralManager.state {
         // Once we are powered on, we can start advertising.
-        if .poweredOn == inPeripheralManager.state {
+        case .poweredOn:
             // Make sure that we have a true Peripheral Manager (should never fail, but it pays to be sure).
             if let manager = peripheralManagerInstance {
                 assert(manager === inPeripheralManager)
@@ -143,6 +156,10 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
                                                       CBAdvertisementDataLocalNameKey: localName
                 ])
             }
+        
+        // Any state other than "Powered on" is an error.
+        default:
+            _sendErrorMessageToAllObservers(error: .coreBluetooth(nil))
         }
     }
     
@@ -163,12 +180,16 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
 
         mutableChar.value = data
         
-        // We do this, because, on the Mac, you can get a subscription before the write.
+        // We do this, because you can get a subscription before the write.
         if nil == central {
-            central = ITCB_SDK_Device_Central(inWriteRequests[0].central, owner: self)
+            // The reason that we instantiate this as an interim value, is because the base class property is the untyped one, and we want the type. This is the easiest way to do that.
+            let tempCentral = ITCB_SDK_Device_Central(inWriteRequests[0].central, owner: self)
+            tempCentral._question = stringVal    // We add the question to the Central's stored property, so it will know what to send back to the Central.
+            central = tempCentral
+        } else {    // If the Central subscription has already happened, then we simply do the send now.
+            _sendRandomAnswerToThisQuestion(stringVal)
+            central = nil
         }
-        
-        _sendQuestionAskedToAllObservers(device: central, question: stringVal)
     }
     
     /* ################################################################## */
@@ -176,13 +197,17 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
      - parameter inPeripheralManager: The Peripheral Manager that experienced the change.
      */
     public func peripheralManager(_ inPeripheralManager: CBPeripheralManager, central inCentral: CBCentral, didSubscribeTo inCharacteristic: CBCharacteristic) {
-        // We do this, because, on the Mac, you can get a subscription before the write.
+        // We do this, because you can get a subscription before the write.
         if nil == central {
             central = ITCB_SDK_Device_Central(inCentral, owner: self)
         }
         
-        if  let central = central as? ITCB_SDK_Device_Central {
-            central.subscribedChar = inCharacteristic
+        // If the Central has already asked the question, then we generate the random answer now.
+        if  let central = central as? ITCB_SDK_Device_Central,
+            let question = central._question {
+            central._subscribedChar = inCharacteristic
+            _sendRandomAnswerToThisQuestion(question)
+            self.central = nil
         }
     }
 }
@@ -198,7 +223,10 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
     internal var owner: ITCB_SDK_Peripheral!
     
     /// This will be used to hold a subscribed Characteristic.
-    internal var subscribedChar: CBCharacteristic!
+    internal var _subscribedChar: CBCharacteristic!
+    
+    /// This holds the question that was asked.
+    internal var _question: String!
 
     /// This is the Central Core Bluetooth device associated with this instance.
     internal var centralDeviceInstance: CBCentral! {
@@ -216,7 +244,6 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
         super.init()
         owner = inOwner
         _peerInstance = inCentral
-        subscribedChar = nil
     }
     
     /* ################################################################## */
@@ -232,7 +259,7 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
         if  let peripheralManager = owner.peripheralManagerInstance,
             let central = owner.central as? ITCB_SDK_Device_Central,
             let centralDevice = central.centralDeviceInstance,
-            let answerCharacteristic = central.subscribedChar as? CBMutableCharacteristic,
+            let answerCharacteristic = central._subscribedChar as? CBMutableCharacteristic,
             let data = inAnswer.data(using: .utf8) {
             peripheralManager.updateValue(data, for: answerCharacteristic, onSubscribedCentrals: [centralDevice])
             owner._sendSuccessInSendingAnswerToAllObservers(device: self, answer: inAnswer, toQuestion: inToQuestion)
