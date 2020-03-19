@@ -188,7 +188,6 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
             central = tempCentral
         } else {    // If the Central subscription has already happened, then we simply do the send now.
             _sendRandomAnswerToThisQuestion(stringVal)
-            central = nil
         }
     }
     
@@ -203,11 +202,12 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
         }
         
         // If the Central has already asked the question, then we generate the random answer now.
-        if  let central = central as? ITCB_SDK_Device_Central,
-            let question = central._question {
+        if  let central = central as? ITCB_SDK_Device_Central {
             central._subscribedChar = inCharacteristic
-            _sendRandomAnswerToThisQuestion(question)
-            self.central = nil
+            // If a question was already asked, then it's time to answer it. Otherwise, we'll wait until the next callback.
+            if let question = central._question {
+                _sendRandomAnswerToThisQuestion(question)
+            }
         }
     }
 }
