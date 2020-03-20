@@ -70,7 +70,7 @@ extension ITCB_SDK_Peripheral {
      - parameter inMutableServiceInstance: The Service that we are adding the Characteristics to.
      */
     func _setCharacteristicsForThisService(_ inMutableServiceInstance: CBMutableService) {
-        let questionProperties: CBCharacteristicProperties = [.writeWithoutResponse]
+        let questionProperties: CBCharacteristicProperties = [.write]
         let answerProperties: CBCharacteristicProperties = [.read, .notify]
         let questionPermissions: CBAttributePermissions = [.writeable]
         let answerPermissions: CBAttributePermissions = [.readable]
@@ -179,6 +179,8 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
         }
 
         mutableChar.value = data
+        // Let the Central know that we got the question.
+        inPeripheralManager.respond(to: inWriteRequests[0], withResult: .success)
         
         // We do this, because you can get a subscription before the write.
         if nil == central {

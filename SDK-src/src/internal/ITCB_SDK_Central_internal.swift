@@ -254,7 +254,7 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
             let service = peripheral.services?[_static_ITCB_SDK_8BallServiceUUID.uuidString],
             let questionCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Question_UUID.uuidString],
             let answerCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Answer_UUID.uuidString] {
-            peripheral.writeValue(data, for: questionCharacteristic, type: .withoutResponse)
+            peripheral.writeValue(data, for: questionCharacteristic, type: .withResponse)
             peripheral.setNotifyValue(true, for: answerCharacteristic)
             question = inQuestion
         } else {
