@@ -191,6 +191,9 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
     
     /// We use this to maintain strong references to discovered Characteristics.
     internal var _characteristicInstances: [CBCharacteristic] = []
+    
+    /// This is a "holding tank" for the question. We put it in here, until we get confirmation that it was delivered.
+    internal var _interimQuestion: String!
 
     /// The question property to conform to the protocol.
     public var question: String! = nil {
@@ -254,11 +257,9 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
             let service = peripheral.services?[_static_ITCB_SDK_8BallServiceUUID.uuidString],
             let questionCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Question_UUID.uuidString],
             let answerCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Answer_UUID.uuidString] {
-            peripheral.writeValue(data, for: questionCharacteristic, type: .withResponse)
+            _interimQuestion = inQuestion
             peripheral.setNotifyValue(true, for: answerCharacteristic)
-            question = inQuestion
-        } else {
-            question = nil
+            peripheral.writeValue(data, for: questionCharacteristic, type: .withResponse)
         }
     }
     
@@ -321,13 +322,43 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
      - parameter error: Any errors that may have occurred. It may be nil.
      */
     public func peripheral(_ inPeripheral: CBPeripheral, didUpdateValueFor inCharacteristic: CBCharacteristic, error inError: Error?) {
-        if  let service = inPeripheral.services?[_static_ITCB_SDK_8BallServiceUUID.uuidString],
-            let answerCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Answer_UUID.uuidString],
-            let answerData = answerCharacteristic.value,
+        if  let answerData = inCharacteristic.value,
             let answerString = String(data: answerData, encoding: .utf8),
             !answerString.isEmpty {
-            inPeripheral.setNotifyValue(false, for: answerCharacteristic)
+            inPeripheral.setNotifyValue(false, for: inCharacteristic)
             answer = answerString
+        }
+    }
+
+    /* ################################################################## */
+    /**
+     Called when the Peripheral updates a Characteristic that we wanted written (the Question).
+     
+     - parameter inPeripheral: The Peripheral object that discovered (and now contains) the Services.
+     - parameter didWriteValueFor: The Characteristic that was updated.
+     - parameter error: Any errors that may have occurred. It may be nil.
+     */
+    public func peripheral(_ inPeripheral: CBPeripheral, didWriteValueFor inCharacteristic: CBCharacteristic, error inError: Error?) {
+        if  nil == inError {
+            if let questionString = _interimQuestion {  // We should have had an interim question queued up.
+                question = questionString
+            } else {
+                owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.peripheralError(nil)))
+            }
+        } else {
+            if let error = inError as? CBATTError {
+                switch error {
+                // We get an "unlikely" error only when there was no question mark, so we are safe in assuming that.
+                case CBATTError.unlikelyError:
+                    owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_Errors.coreBluetooth(ITCB_RejectionReason.questionPlease)))
+
+                // For everything else, we simply send the error back, wrapped in the "sendFailed" error.
+                default:
+                    owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_Errors.coreBluetooth(ITCB_RejectionReason.peripheralError(error))))
+                }
+            } else {
+                owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.unknown(inError)))
+            }
         }
     }
     

@@ -178,6 +178,12 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
             return
         }
 
+        // The last character needs to be a question mark.
+        guard "?" == stringVal.last else {
+            inPeripheralManager.respond(to: inWriteRequests[0], withResult: .unlikelyError)
+            return
+        }
+        
         mutableChar.value = data
         // Let the Central know that we got the question.
         inPeripheralManager.respond(to: inWriteRequests[0], withResult: .success)
