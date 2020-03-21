@@ -198,7 +198,9 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
     /// The question property to conform to the protocol.
     public var question: String! = nil {
         didSet {
-            owner._sendSuccessInAskingMessageToAllObservers(device: self)
+            if nil != question {    // This is actually a little bit of a kludge. The app doesn't properly unchain the optional, but we don't want to make changes to the app.
+                owner._sendSuccessInAskingMessageToAllObservers(device: self)
+            }
         }
     }
 
@@ -252,6 +254,7 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
      - parameter inQuestion: The question to be asked.
      */
     public func sendQuestion(_ inQuestion: String) {
+        question = nil
         if  let data = inQuestion.data(using: .utf8),
             let peripheral = _peerInstance as? CBPeripheral,
             let service = peripheral.services?[_static_ITCB_SDK_8BallServiceUUID.uuidString],
@@ -360,15 +363,5 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
                 owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.unknown(inError)))
             }
         }
-    }
-    
-    /* ################################################################## */
-    /**
-     This is a required/not required conformance. Even though it isn't "required," per se...it's required.
-     
-     - parameter inPeripheral: The Peripheral object that has the invalidated Services.
-     - parameter didModifyServices: The Services that were invalidated.
-     */
-    public func peripheral(_ inPeripheral: CBPeripheral, didModifyServices inInvalidatedServices: [CBService]) {
     }
 }

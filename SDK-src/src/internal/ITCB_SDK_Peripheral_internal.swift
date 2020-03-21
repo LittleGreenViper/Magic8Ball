@@ -272,5 +272,7 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
             peripheralManager.updateValue(data, for: answerCharacteristic, onSubscribedCentrals: [centralDevice])
             owner._sendSuccessInSendingAnswerToAllObservers(device: self, answer: inAnswer, toQuestion: inToQuestion)
         }
+        
+        _question = nil // Clear out the property, so it doesn't pollute the next call.
     }
 }
