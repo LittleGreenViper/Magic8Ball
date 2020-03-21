@@ -5,7 +5,7 @@
 
 This is a repo that will accompany [a series of posts on introduction to Core Bluetooth](https://littlegreenviper.com/series/bluetooth-2/).
 
-The "working code" for the repo is in the `SDK-Src` directory. This will be a simple framework project that implements a very simple "[Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball)" application that runs on two different Apple devices.
+The "working code" for the repo is in [the `SDK-Src` directory](https://github.com/LittleGreenViper/Magic8Ball/tree/master/SDK-src). This will be a simple framework project that implements a very simple "[Magic 8-Ball](https://en.wikipedia.org/wiki/Magic_8-Ball)" application that runs on two different Apple devices.
 
 One device acts as a [Bluetooth Central](https://developer.apple.com/documentation/corebluetooth/cbcentralmanager) device, and the other as a [Bluetooth Peripheral](https://developer.apple.com/documentation/corebluetooth/cbperipheralmanager) device.
 

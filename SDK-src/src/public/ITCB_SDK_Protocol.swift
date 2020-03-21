@@ -436,6 +436,20 @@ public enum ITCB_RejectionReason: Error {
 
     /* ################################################################## */
     /**
+      The String needs to be phrased in the form of a question (question mark at the end).
+     */
+    case questionPlease
+
+    /* ################################################################## */
+    /**
+      There was some kind of error in the Peripheral.
+     
+      - parameter error: Possible error code associated with this enum instance.
+     */
+    case peripheralError(Error?)
+
+    /* ################################################################## */
+    /**
       Unknown error
      
       - parameter error: Possible error code associated with this enum instance.
@@ -447,9 +461,11 @@ public enum ITCB_RejectionReason: Error {
      We send back text slugs, to be interpreted by the user app.
      
      Possible values are:
-        - `"ITCB-SDK-REJECT-OFFLINE"`   : Device is Offline
-        - `"ITCB-SDK-REJECT-BUSY"`      : Device is busy
-        - `"ITCB-SDK-REJECT-UNKNOWN"`   : Unspecified reason
+        - `"ITCB-SDK-REJECT-OFFLINE"`           : Device is Offline
+        - `"ITCB-SDK-REJECT-BUSY"`              : Device is busy
+        - `"ITCB-SDK-REJECT-NO-QUESTION-MARK"`  : The String needs to be phrased in the form of a question (question mark at the end).
+        - `"ITCB-SDK-REJECT-PERIPHERAL-ERROR"`  : There was some kind of error in the Peripheral.
+        - `"ITCB-SDK-REJECT-UNKNOWN"`           : Unspecified reason
      
      The user app should also extract any associated values (Unknown).
      */
@@ -463,6 +479,12 @@ public enum ITCB_RejectionReason: Error {
             case .deviceBusy:
                 ret = "ITCB-SDK-REJECT-BUSY"
             
+            case .questionPlease:
+                ret = "ITCB-SDK-REJECT-NO-QUESTION-MARK"
+            
+            case .peripheralError:
+                ret = "ITCB-SDK-REJECT-PERIPHERAL-ERROR"
+
             case .unknown:
                 ret = "ITCB-SDK-REJECT-UNKNOWN"
         }
@@ -478,7 +500,10 @@ public enum ITCB_RejectionReason: Error {
         var ret: Error!
         
         switch self {
-        case .unknown(let val): // This is the only value that has an associated value.
+        case .unknown(let val): // We can associate an error with the unknown type.
+            ret = val
+            
+        case .peripheralError(let val): // The Peripheral Error can have an associated error.
             ret = val
             
         default:    // All others will return nil.

@@ -70,7 +70,7 @@ extension ITCB_SDK_Peripheral {
      - parameter inMutableServiceInstance: The Service that we are adding the Characteristics to.
      */
     func _setCharacteristicsForThisService(_ inMutableServiceInstance: CBMutableService) {
-        let questionProperties: CBCharacteristicProperties = [.writeWithoutResponse]
+        let questionProperties: CBCharacteristicProperties = [.write]
         let answerProperties: CBCharacteristicProperties = [.read, .notify]
         let questionPermissions: CBAttributePermissions = [.writeable]
         let answerPermissions: CBAttributePermissions = [.readable]
@@ -178,7 +178,15 @@ extension ITCB_SDK_Peripheral: CBPeripheralManagerDelegate {
             return
         }
 
+        // The last character needs to be a question mark.
+        guard "?" == stringVal.last else {
+            inPeripheralManager.respond(to: inWriteRequests[0], withResult: .unlikelyError)
+            return
+        }
+        
         mutableChar.value = data
+        // Let the Central know that we got the question.
+        inPeripheralManager.respond(to: inWriteRequests[0], withResult: .success)
         
         // We do this, because you can get a subscription before the write.
         if nil == central {
@@ -264,5 +272,7 @@ internal class ITCB_SDK_Device_Central: ITCB_SDK_Device, ITCB_Device_Central_Pro
             peripheralManager.updateValue(data, for: answerCharacteristic, onSubscribedCentrals: [centralDevice])
             owner._sendSuccessInSendingAnswerToAllObservers(device: self, answer: inAnswer, toQuestion: inToQuestion)
         }
+        
+        _question = nil // Clear out the property, so it doesn't pollute the next call.
     }
 }
