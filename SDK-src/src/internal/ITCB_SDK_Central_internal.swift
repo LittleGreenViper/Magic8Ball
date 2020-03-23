@@ -380,4 +380,17 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
             }
         }
     }
+    
+    /* ################################################################## */
+    /**
+     Called when the Peripheral makes a change to a Service. In the case of this app, that generally means that the Peripheral was disconnected.
+     We can assume that, if we get this call, the Peripheral has been disconnected.
+     
+     - parameter inPeripheral: The Peripheral object that experienced the changed Services.
+     - parameter didModifyServices: The Services (as an Array) that were changed.
+     */
+    public func peripheral(_ inPeripheral: CBPeripheral, didModifyServices inInvalidatedServices: [CBService]) {
+        // For now, we will simply return an error, but we'll revisit this later.
+        owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_Errors.coreBluetooth(ITCB_RejectionReason.deviceOffline)))
+    }
 }
