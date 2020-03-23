@@ -186,8 +186,14 @@ internal protocol ITCB_SDK_Device_PeripheralDelegate {
  We need to keep in mind that Peripheral objects are actually owned by Central SDK instances.
  */
 internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripheral_Protocol {
+    /// This is how long we have for a timeout, in seconds.
+    internal let _timeoutLengthInSeconds: TimeInterval = 1.0
+    
     /// This is the Central SDK that "owns" this device.
     internal var owner: ITCB_SDK_Central!
+    
+    /// The Timer instance that is created when we start an interaction. This will handle a timeout.
+    internal var _timeoutTimer: Timer!
     
     /// We use this to maintain strong references to discovered Characteristics.
     internal var _characteristicInstances: [CBCharacteristic] = []
@@ -260,9 +266,15 @@ internal class ITCB_SDK_Device_Peripheral: ITCB_SDK_Device, ITCB_Device_Peripher
             let service = peripheral.services?[_static_ITCB_SDK_8BallServiceUUID.uuidString],
             let questionCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Question_UUID.uuidString],
             let answerCharacteristic = service.characteristics?[_static_ITCB_SDK_8BallService_Answer_UUID.uuidString] {
+            _timeoutTimer = Timer.scheduledTimer(withTimeInterval: _timeoutLengthInSeconds, repeats: false) { [unowned self] (_) in
+                self._timeoutTimer = nil
+                self.owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.deviceOffline))
+            }
             _interimQuestion = inQuestion
             peripheral.setNotifyValue(true, for: answerCharacteristic)
             peripheral.writeValue(data, for: questionCharacteristic, type: .withResponse)
+        } else {
+            self.owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.deviceOffline))
         }
     }
     
@@ -328,6 +340,8 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
         if  let answerData = inCharacteristic.value,
             let answerString = String(data: answerData, encoding: .utf8),
             !answerString.isEmpty {
+            _timeoutTimer.invalidate()  // Stop our timeout timer.
+            _timeoutTimer = nil
             inPeripheral.setNotifyValue(false, for: inCharacteristic)
             answer = answerString
         }
@@ -349,6 +363,8 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
                 owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.peripheralError(nil)))
             }
         } else {
+            _timeoutTimer.invalidate()  // Stop our timeout timer. We only need the one error.
+            _timeoutTimer = nil
             if let error = inError as? CBATTError {
                 switch error {
                 // We get an "unlikely" error only when there was no question mark, so we are safe in assuming that.
