@@ -37,16 +37,24 @@ public class ITCB_SDK: NSObject, ITCB_SDK_Protocol {
      
      - parameter isCentral: This is true, if we want a Central instance, or false, for a Peripheral.
      
+     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR). Default is false (optional argument).
+
      - returns: An instance of the SDK for use by the user.
      */
-    public class func createInstance(isCentral inIsCentral: Bool) -> ITCB_SDK_Protocol? {
+    public class func createInstance(isCentral inIsCentral: Bool, usingClassicBluetooth inUsingClassicBluetooth: Bool = false) -> ITCB_SDK_Protocol? {
         #if os(OSX) || os(iOS)
-            return inIsCentral ? ITCB_SDK_Central.createInstance() : ITCB_SDK_Peripheral.createInstance()
+            return inIsCentral ? ITCB_SDK_Central.createInstance(usingClassicBluetooth: inUsingClassicBluetooth) : ITCB_SDK_Peripheral.createInstance(usingClassicBluetooth: inUsingClassicBluetooth)
         #else
-            return inIsCentral ? ITCB_SDK_Central.createInstance() : nil
+            return inIsCentral ? ITCB_SDK_Central.createInstance(usingClassicBluetooth: inUsingClassicBluetooth) : nil
         #endif
     }
-
+    
+    /* ################################################################## */
+    /**
+      This will be true, if the instance is set up to use "classic" (BR/EDR) Bluetooth.
+     */
+    public var usingClassicBluetooth: Bool = false
+    
     /* ################################################################## */
     /**
       Any error condition associated with this instance. It may be nil.
@@ -112,9 +120,12 @@ public class ITCB_SDK: NSObject, ITCB_SDK_Protocol {
 
     /* ################################################################## */
     /**
-     Required for NSObject.
+     Default Initializer.
+     
+     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
      */
-    internal override init() {
+    internal init(usingClassicBluetooth inUsingClassicBluetooth: Bool) {
+        usingClassicBluetooth = inUsingClassicBluetooth
         super.init()
     }
 }
@@ -131,10 +142,12 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
      Factory function for instantiating Centrals.
      
      This is internal, but needs to be declared here. Awkward, I know.
+     
+     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
 
      - returns: A new instance of a Central SDK.
      */
-    internal class func createInstance() -> ITCB_SDK_Protocol? { ITCB_SDK_Central() }
+    internal class func createInstance(usingClassicBluetooth inUsingClassicBluetooth: Bool) -> ITCB_SDK_Protocol? { ITCB_SDK_Central(usingClassicBluetooth: inUsingClassicBluetooth) }
 
     /* ################################################################## */
     /**
@@ -146,10 +159,10 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
     /**
      Default initializer
      
-     Declared internal (as opposed to private), in order to afford mocking.
+     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
      */
-    internal override init() {
-        super.init()
+    internal override init(usingClassicBluetooth inUsingClassicBluetooth: Bool) {
+        super.init(usingClassicBluetooth: inUsingClassicBluetooth)
         _ = _managerInstance    // This forces us to instantiate our manager.
     }
 }
@@ -169,11 +182,13 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
          Factory function for instantiating Peripherals.
          
          This is internal, but needs to be declared here. Awkward, I know.
+          
+          - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
 
-         - returns: A new instance of a Peripheral SDK.
+          - returns: A new instance of a Peripheral SDK.
          */
-        internal class func createInstance() -> ITCB_SDK_Protocol? { ITCB_SDK_Peripheral() }
-        
+        internal class func createInstance(usingClassicBluetooth inUsingClassicBluetooth: Bool) -> ITCB_SDK_Protocol? { ITCB_SDK_Peripheral(usingClassicBluetooth: inUsingClassicBluetooth) }
+
         /* ################################################################## */
         /**
          This is a reference to the Central device that the instance is being "managed" by.
@@ -184,10 +199,10 @@ public class ITCB_SDK_Central: ITCB_SDK, ITCB_SDK_Central_Protocol {
         /**
          Default initializer
          
-         Declared internal (as opposed to private), in order to afford mocking.
+         - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
          */
-        internal override init() {
-            super.init()
+        internal override init(usingClassicBluetooth inUsingClassicBluetooth: Bool) {
+            super.init(usingClassicBluetooth: inUsingClassicBluetooth)
             _ = _managerInstance    // This forces us to instantiate our manager.
         }
     }
