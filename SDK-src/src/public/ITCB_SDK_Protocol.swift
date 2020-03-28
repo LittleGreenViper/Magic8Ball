@@ -47,11 +47,9 @@ public protocol ITCB_SDK_Protocol {
      
      This is really for internal use only.
      
-     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
-
      - returns: A new instance of an SDK.
      */
-    static func createInstance(usingClassicBluetooth: Bool) -> ITCB_SDK_Protocol?
+    static func createInstance() -> ITCB_SDK_Protocol?
 
     /* ################################################################## */
     /**
@@ -113,11 +111,9 @@ extension ITCB_SDK_Protocol {
     /**
      This is just here to allow the protocol to make the func optional. It returns nil.
      
-     - parameter usingClassicBluetooth: This is true, if we will be using "Classic" Bluetooth (BR/EDR).
-     
      - returns: nil
      */
-    public static func createInstance(usingClassicBluetooth: Bool) -> ITCB_SDK_Protocol? { return nil }
+    public static func createInstance() -> ITCB_SDK_Protocol? { return nil }
 }
 
 /* ###################################################################################################################################### */

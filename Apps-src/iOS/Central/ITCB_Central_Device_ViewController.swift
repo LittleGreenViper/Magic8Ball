@@ -143,7 +143,6 @@ extension ITCB_Central_Device_ViewController: UITextFieldDelegate {
      */
     func textFieldShouldReturn(_ inTextField: UITextField) -> Bool {
         inTextField.resignFirstResponder()  // Put away the keyboard.
-        sendQuestion()
         return true
     }
 }

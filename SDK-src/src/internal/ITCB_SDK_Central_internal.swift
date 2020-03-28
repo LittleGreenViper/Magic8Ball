@@ -331,6 +331,7 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
     /* ################################################################## */
     /**
      Called when the Peripheral updates a Characteristic (the Answer).
+     The inCharacteristic.value field can be considered valid.
      
      - parameter inPeripheral: The Peripheral object that discovered (and now contains) the Services.
      - parameter didUpdateValueFor: The Characteristic that was updated.
@@ -350,6 +351,7 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
     /* ################################################################## */
     /**
      Called when the Peripheral updates a Characteristic that we wanted written (the Question).
+     NOTE: The inCharacteristic.value field IS NOT VALID in this call. That's why we saved the _interimQuestion property.
      
      - parameter inPeripheral: The Peripheral object that discovered (and now contains) the Services.
      - parameter didWriteValueFor: The Characteristic that was updated.

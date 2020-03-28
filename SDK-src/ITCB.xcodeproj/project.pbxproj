@@ -15,6 +15,7 @@
 		D41DD5092401D79600A99087 /* ITCB_SDK_Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC12C223F736D800C3ED12 /* ITCB_SDK_Protocol.swift */; };
 		D41DD50A2401D79600A99087 /* ITCB_SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410BB0A23F8E799008DE79C /* ITCB_SDK.swift */; };
 		D41DD50B2401D79600A99087 /* ITCB_SDK_internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410BB0D23F8E9C2008DE79C /* ITCB_SDK_internal.swift */; };
+		D455684A23F42C12007487BE /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D455684823F42C04007487BE /* Warnings.xcconfig */; };
 		D49AE304240841F30002D53C /* ITCB_SDK_Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FC12C223F736D800C3ED12 /* ITCB_SDK_Protocol.swift */; };
 		D49AE305240841F30002D53C /* ITCB_SDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410BB0A23F8E799008DE79C /* ITCB_SDK.swift */; };
 		D49AE306240841F30002D53C /* ITCB_SDK_internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D410BB0D23F8E9C2008DE79C /* ITCB_SDK_internal.swift */; };
@@ -285,7 +286,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1140;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Little Green Viper Software Development LLC";
 				TargetAttributes = {
 					D40FF5CB2406A66100349E77 = {
@@ -350,6 +351,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D455684A23F42C12007487BE /* Warnings.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +699,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -725,7 +727,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
