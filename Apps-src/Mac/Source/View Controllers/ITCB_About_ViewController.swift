@@ -68,16 +68,7 @@ class ITCB_About_ViewController: ITCB_Base_ViewController {
      */
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dictionary = Bundle.main.infoDictionary!
-        if let version = dictionary["CFBundleShortVersionString"] as? String,
-            let build = dictionary["CFBundleVersion"] as? String,
-            let name = dictionary["CFBundleName"] as? String {
-            let displayName = dictionary["CFBundleDisplayName"] as? String
-            let vName = ((displayName ?? "").isEmpty) ? name : displayName!
-            
-            mainLabel?.stringValue = "\(vName), Version \(version).\(build)"
-        }
-        
+        mainLabel?.stringValue = "\(Bundle.main.appDisplayName), Version \(Bundle.main.appVersionString).\(Bundle.main.appVersionBuildString)"
         mainDisplayTextView?.string = mainDisplayTextView?.string.localizedVariant ?? "ERROR"
         seriesURIButton?.title = seriesURIButton?.title.localizedVariant ?? "ERROR"
         seriesURIButton?.alternateTitle = seriesURIButton?.alternateTitle.localizedVariant ?? "ERROR"

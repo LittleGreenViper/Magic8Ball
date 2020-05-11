@@ -420,10 +420,296 @@
                 </li>
               </ul>
             </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Main%20SDK%20Interface%20Base%20Class"></a>
+                <a name="//apple_ref/swift/Section/Main SDK Interface Base Class" class="dashAnchor"></a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Main%20SDK%20Interface%20Base%20Class"></a>
+                  <h3 class="section-name"><p>Main SDK Interface Base Class</p>
+</h3>
+                </div>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C6_errorAA0A7_ErrorsOSgvp"></a>
+                    <a name="//apple_ref/swift/Property/_error" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C6_errorAA0A7_ErrorsOSgvp">_error</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Any error condition associated with this instance. It may be nil.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">_error</span><span class="p">:</span> <span class="kt"><a href="../Enums/ITCB_Errors.html">ITCB_Errors</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C15managerInstanceSo9CBManagerCSgvp"></a>
+                    <a name="//apple_ref/swift/Property/managerInstance" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C15managerInstanceSo9CBManagerCSgvp">managerInstance</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is a base class cast of the manager object that wil be attached to this instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">managerInstance</span><span class="p">:</span> <span class="kt">CBManager</span><span class="o">!</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C25_isCoreBluetoothPoweredOnSbvp"></a>
+                    <a name="//apple_ref/swift/Property/_isCoreBluetoothPoweredOn" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C25_isCoreBluetoothPoweredOnSbvp">_isCoreBluetoothPoweredOn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is true, if Core Bluetooth reports that the device Bluetooth interface is powered on and available for use.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">_isCoreBluetoothPoweredOn</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C12_addObservery10Foundation4UUIDVSgAA0a1_E9_Protocol_pF"></a>
+                    <a name="//apple_ref/swift/Method/_addObserver(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C12_addObservery10Foundation4UUIDVSgAA0a1_E9_Protocol_pF">_addObserver(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This adds the given observer to the list of observers for this SDK object. If the observer is already registered, nothing happens.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">_addObserver</span><span class="p">(</span><span class="n">_</span> <span class="nv">inObserver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ITCB_Observer_Protocol.html">ITCB_Observer_Protocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UUID</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inObserver</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Observer Instance to add.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The newly-assigned UUID. Nil, if the observer was not added.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C15_removeObserveryyAA0a1_E9_Protocol_pF"></a>
+                    <a name="//apple_ref/swift/Method/_removeObserver(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C15_removeObserveryyAA0a1_E9_Protocol_pF">_removeObserver(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This removes the given observer from the list of observers for this SDK object. If the observer is not registered, nothing happens.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">_removeObserver</span><span class="p">(</span><span class="n">_</span> <span class="nv">inObserver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ITCB_Observer_Protocol.html">ITCB_Observer_Protocol</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inObserver</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Observer Instance to remove.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C12_isObservingySbAA0A18_Observer_Protocol_pF"></a>
+                    <a name="//apple_ref/swift/Method/_isObserving(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C12_isObservingySbAA0A18_Observer_Protocol_pF">_isObserving(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This checks the given observer, to see if it is currently observing this SDK instance.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">_isObserving</span><span class="p">(</span><span class="n">_</span> <span class="nv">inObserver</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ITCB_Observer_Protocol.html">ITCB_Observer_Protocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>inObserver</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Observer Instance to check.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>True, if the observer is currently in the list of SDK observers.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:12ITCB_SDK_Mac0a1_B0C31_sendErrorMessageToAllObservers5erroryAA0A7_ErrorsO_tF"></a>
+                    <a name="//apple_ref/swift/Method/_sendErrorMessageToAllObservers(error:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:12ITCB_SDK_Mac0a1_B0C31_sendErrorMessageToAllObservers5erroryAA0A7_ErrorsO_tF">_sendErrorMessageToAllObservers(error:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This sends an error message to all registered observers.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">_sendErrorMessageToAllObservers</span><span class="p">(</span><span class="n"><a href="../Classes/ITCB_SDK.html#/s:12ITCB_SDK_Mac0a1_B0C5errorAA0A7_ErrorsOSgvp">error</a></span> <span class="nv">inError</span><span class="p">:</span> <span class="kt"><a href="../Enums/ITCB_Errors.html">ITCB_Errors</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>error</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The error that we are sending.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-03-22)</p>
+          <p>&copy; 2020 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2020-05-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

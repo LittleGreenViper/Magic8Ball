@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Watch Extension</string>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -19,9 +19,11 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>The App Needs to Connect to Bluetooth Devices</string>
+	<string>The App Needs to Connect to Other Instances of this App</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>The App Needs to Connect to Other Instances of this App</string>
 	<key>NSExtension</key>
 	<dict>
 		<key>NSExtensionAttributes</key>

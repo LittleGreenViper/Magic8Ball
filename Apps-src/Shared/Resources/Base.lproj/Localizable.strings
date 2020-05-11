@@ -79,6 +79,7 @@ Little Green Viper Software Development LLC: https://littlegreenviper.com
 "SLUG-WAIT"                         =   "WAITING FOR QUESTION";
 "SLUG-ERROR"                        =   "ERROR!";
 "SLUG-ABOUT"                        =   "ABOUT THIS APP";
+"SLUG-ABOUT-MENU-ITEM-FORMAT"       =   "About %@";
 "SLUG-SELECT-MODE"                  =   "SELECT THE MODE";
 "SLUG-CENTRAL"                      =   "CENTRAL";
 "SLUG-PERIPHERAL"                   =   "PERIPHERAL";

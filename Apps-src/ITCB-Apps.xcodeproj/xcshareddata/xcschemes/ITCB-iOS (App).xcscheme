@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1130"
+   LastUpgradeVersion = "1140"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D4BC057B23F34350008266BC"
-               BuildableName = "ITCB-iOS.app"
+               BuildableName = "Bluetooth 8-Ball.app"
                BlueprintName = "ITCB-iOS"
                ReferencedContainer = "container:ITCB-Apps.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4BC057B23F34350008266BC"
-            BuildableName = "ITCB-iOS.app"
+            BuildableName = "Bluetooth 8-Ball.app"
             BlueprintName = "ITCB-iOS"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4BC057B23F34350008266BC"
-            BuildableName = "ITCB-iOS.app"
+            BuildableName = "Bluetooth 8-Ball.app"
             BlueprintName = "ITCB-iOS"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>

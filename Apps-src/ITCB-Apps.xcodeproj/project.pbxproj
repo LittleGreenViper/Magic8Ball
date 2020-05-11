@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D40B434023F381F100CFE862 /* ITCB-Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D40B433F23F381F100CFE862 /* ITCB-Watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D40B434023F381F100CFE862 /* Bluetooth 8-Ball.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D40B434F23F381F200CFE862 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D40B434E23F381F200CFE862 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D40B437523F3836900CFE862 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40B437223F3836900CFE862 /* Interface.storyboard */; };
 		D40B437623F3836900CFE862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40B437423F3836900CFE862 /* Assets.xcassets */; };
@@ -133,7 +133,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				D40B434023F381F100CFE862 /* ITCB-Watch.app in Embed Watch Content */,
+				D40B434023F381F100CFE862 /* Bluetooth 8-Ball.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,8 +196,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D40B433C23F381F100CFE862 /* ITCB-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITCB-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D40B433F23F381F100CFE862 /* ITCB-Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITCB-Watch.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40B434E23F381F200CFE862 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40B437323F3836900CFE862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = App/Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D40B437423F3836900CFE862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		D40B438323F3845F00CFE862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Extension/Meta/Info.plist; sourceTree = "<group>"; };
 		D40FF5BE2406A1C200349E77 /* ITCB_AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ITCB_AppDelegate.swift; path = Source/Application/ITCB_AppDelegate.swift; sourceTree = "<group>"; };
 		D417F2152419C1EE006969DA /* ITCB_Peripheral_ViewController_Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Peripheral_ViewController_Extension.swift; sourceTree = "<group>"; };
-		D4195F8723F4533E0031A99E /* ITCB-TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITCB-TV.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4195F8723F4533E0031A99E /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4195F9A23F453EE0031A99E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Meta/Info.plist; sourceTree = "<group>"; };
 		D4195F9E23F454200031A99E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4195FA023F454200031A99E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -229,7 +229,7 @@
 		D4A7887F23F5D1C70087D78F /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D4AED470240419CC00FE4542 /* ITCB_Central_Device_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Central_Device_ViewController.swift; sourceTree = "<group>"; };
 		D4BA633323FDE12F0086EF9F /* ITCB_About_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_About_ViewController.swift; sourceTree = "<group>"; };
-		D4BC057C23F34350008266BC /* ITCB-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITCB-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4BC057C23F34350008266BC /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4BC05A023F346AB008266BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		D4BC05A323F346B7008266BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D4BC05A923F346B7008266BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Resources/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -641,11 +641,11 @@
 			isa = PBXGroup;
 			children = (
 				D4D5F5C923EEF33400E4F52B /* ITCB-Mac.app */,
-				D4BC057C23F34350008266BC /* ITCB-iOS.app */,
-				D40B433C23F381F100CFE862 /* ITCB-Watch.app */,
-				D40B433F23F381F100CFE862 /* ITCB-Watch.app */,
+				D4BC057C23F34350008266BC /* Bluetooth 8-Ball.app */,
+				D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */,
+				D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */,
 				D40B434E23F381F200CFE862 /* Watch Extension.appex */,
-				D4195F8723F4533E0031A99E /* ITCB-TV.app */,
+				D4195F8723F4533E0031A99E /* Bluetooth 8-Ball.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -763,7 +763,7 @@
 			);
 			name = "ITCB-Watch";
 			productName = Watch;
-			productReference = D40B433C23F381F100CFE862 /* ITCB-Watch.app */;
+			productReference = D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
 		D40B433E23F381F100CFE862 /* Watch App */ = {
@@ -780,7 +780,7 @@
 			);
 			name = "Watch App";
 			productName = "Watch WatchKit App";
-			productReference = D40B433F23F381F100CFE862 /* ITCB-Watch.app */;
+			productReference = D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
 		D40B434D23F381F200CFE862 /* Watch Extension */ = {
@@ -817,7 +817,7 @@
 			);
 			name = "ITCB-TV";
 			productName = "ITCB-TV";
-			productReference = D4195F8723F4533E0031A99E /* ITCB-TV.app */;
+			productReference = D4195F8723F4533E0031A99E /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D4BC057B23F34350008266BC /* ITCB-iOS */ = {
@@ -836,7 +836,7 @@
 			);
 			name = "ITCB-iOS";
 			productName = iOS;
-			productReference = D4BC057C23F34350008266BC /* ITCB-iOS.app */;
+			productReference = D4BC057C23F34350008266BC /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D4D5F5C823EEF33400E4F52B /* ITCB-Mac */ = {
@@ -1224,11 +1224,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 			};
@@ -1238,11 +1238,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
@@ -1255,12 +1255,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				IBSC_MODULE = Watch_WatchKit_Extension;
 				INFOPLIST_FILE = Watch/App/Meta/Info.plist;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch.app";
-				PRODUCT_NAME = "ITCB-Watch";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1275,12 +1276,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				IBSC_MODULE = Watch_WatchKit_Extension;
 				INFOPLIST_FILE = Watch/App/Meta/Info.plist;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch.app";
-				PRODUCT_NAME = "ITCB-Watch";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1296,6 +1298,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = Watch/Extension/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1303,8 +1306,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch.app.extension";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball.extension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1321,6 +1324,7 @@
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = "";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = Watch/Extension/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1328,8 +1332,8 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.ITCB-Watch.app.extension";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball.extension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1346,15 +1350,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = TV/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-TV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.TV.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1369,15 +1374,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = TV/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-TV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.TV.8-ball";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = appletvos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -1391,6 +1397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = iOS/Meta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1399,10 +1406,10 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-iOS";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.iOS.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_iOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1416,6 +1423,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = iOS/Meta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1424,10 +1432,10 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-iOS";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.iOS.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_iOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Bluetooth 8-Ball";
 				SDKROOT = iphoneos;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1563,6 +1571,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Mac/Meta/Info.plist;
@@ -1572,8 +1581,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-Mac";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Mac.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1592,6 +1601,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 3000;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Mac/Meta/Info.plist;
@@ -1601,8 +1611,8 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				MARKETING_VERSION = 1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.ITCB-Mac";
+				MARKETING_VERSION = 1.1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Mac.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

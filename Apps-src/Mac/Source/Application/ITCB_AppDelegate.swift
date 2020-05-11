@@ -24,12 +24,52 @@ import Cocoa
 import ITCB_SDK_Mac
 
 /* ###################################################################################################################################### */
+// MARK: - Bundle Extension -
+/* ###################################################################################################################################### */
+/**
+ This extension adds a few simple accessors for some of the more common bundle items.
+ */
+extension Bundle {
+    // MARK: General Stuff for common Apple-Supplied Items
+    
+    /* ################################################################## */
+    /**
+     The app name, as a string. It is required, and "ERROR" is returned if it is not present.
+     */
+    var appDisplayName: String { (object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? object(forInfoDictionaryKey: "CFBundleName") as? String) ?? "ERROR" }
+
+    /* ################################################################## */
+    /**
+     The app version, as a string. It is required, and "ERROR" is returned if it is not present.
+     */
+    var appVersionString: String { object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "ERROR" }
+    
+    /* ################################################################## */
+    /**
+     The build version, as a string. It is required, and "ERROR" is returned if it is not present.
+     */
+    var appVersionBuildString: String { object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "ERROR" }
+    
+    /* ################################################################## */
+    /**
+     If there is a copyright string, it is returned here. It may be nil.
+     */
+    var copyrightString: String? { object(forInfoDictionaryKey: "NSHumanReadableCopyright") as? String }
+}
+
+/* ###################################################################################################################################### */
 // MARK: 
 /* ###################################################################################################################################### */
 /**
  */
 @NSApplicationMain
 class ITCB_AppDelegate: NSObject, NSApplicationDelegate {
+    /* ################################################################## */
+    /**
+     The About Menu. We access it, so we can change the name.
+     */
+    @IBOutlet weak var aboutMenuItem: NSMenuItem!
+    
     /* ################################################################## */
     /**
      This is a shortcut to get the app delegate instance as an instance of this class.
@@ -68,5 +108,17 @@ class ITCB_AppDelegate: NSObject, NSApplicationDelegate {
                 self.deviceSDKInstance.localName = deviceName
             }
         }
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the app has finished its launch setup.
+     
+     We use this to set our "About This App" menu item.
+     
+     - parameter: ignored
+     */
+    func applicationDidFinishLaunching(_: Notification) {
+        aboutMenuItem.title = String(format: aboutMenuItem.title.localizedVariant, Bundle.main.appDisplayName)
     }
 }

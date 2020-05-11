@@ -13,19 +13,21 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
+	<string>Bluetooth 8-Ball</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
-	<string>public.app-category.education</string>
+	<string>public.app-category.entertainment</string>
 	<key>LSMinimumSystemVersion</key>
 	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>The App Needs to Connect to Bluetooth Devices</string>
+	<string>The App Needs to Connect to Other Instances of this App</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>The App Needs to Connect to Other Instances of this App</string>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2020 Little Green Viper Software Development LLC. All rights reserved.</string>
 	<key>NSMainStoryboardFile</key>

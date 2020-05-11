@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,19 +11,16 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="IntroToCoreBluetooth" id="1Xt-HY-uBw">
+                            <menuItem title="SLUG-APP-NAME" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="IntroToCoreBluetooth" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="SLUG-APP-NAME" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About IntroToCoreBluetooth" id="5kV-Vb-QxS">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="SLUG-ABOUT-MENU-ITEM-FORMAT" keyEquivalent="s" id="5kV-Vb-QxS">
                                             <connections>
                                                 <action selector="orderFrontStandardAboutPanel:" target="Ady-hI-5gd" id="Exp-CZ-Vem"/>
                                                 <segue destination="Xfz-LK-QeZ" kind="show" id="6dj-zb-mVA"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Services" id="NMo-om-nkz">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -675,11 +672,16 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="ITCB_AppDelegate" customModule="ITCB_Mac" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="ITCB_AppDelegate" customModule="ITCB_Mac" customModuleProvider="target">
+                    <connections>
+                        <outlet property="aboutMenu" destination="1Xt-HY-uBw" id="Cvr-WT-e2k"/>
+                        <outlet property="aboutMenuItem" destination="5kV-Vb-QxS" id="sKy-nG-wfa"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705" y="-219"/>
+            <point key="canvasLocation" x="704" y="-84"/>
         </scene>
         <!--Mode Selection Window Controller-->
         <scene sceneID="R2V-B0-nI4">
@@ -965,11 +967,10 @@
                                             <tableColumns>
                                                 <tableColumn editable="NO" width="438" minWidth="100" maxWidth="10000" id="wUl-0O-tVp">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="kdW-C6-eYk">
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="SLUG-CENTRAL-TABLE-CELL" id="kdW-C6-eYk">
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1101,7 +1102,6 @@
                                             <tableColumns>
                                                 <tableColumn width="437" minWidth="40" maxWidth="1000" id="Cx2-je-MLU">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="controlContent" size="11"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>

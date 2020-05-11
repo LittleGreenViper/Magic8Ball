@@ -38,7 +38,7 @@ import Foundation
  
  Centrals are instantiated as `ITCB_SDK_Central` instances, and Peripherals are instantiated as `ITCB_SDK_Peripheral` instances. They are described as protocols, instead of concrete classes or structs, in order to assure opacity and flexibility.
 
- All protocol members are required.
+ All protocol members are required (Except for the internal `createInstance()` method; which is, in reality, required).
  */
 public protocol ITCB_SDK_Protocol {
     /* ################################################################## */
@@ -167,7 +167,7 @@ public protocol ITCB_Device_Protocol {
     /**
      This is a "faux Equatable" method. It allows us to compare something that is expressed only as a protocol instance with ourselves, without the need to be Equatable.
      
-     The reason for doing this, is that I don't want to have to conform to the whole Equatable protocol. We just need a quick identity test, and this will give it to use without requiring anything too fancy.
+     The reason for doing this, is that I don't want to have to conform to the whole Equatable protocol. We just need a quick identity test, and this will give it to us without requiring anything too fancy.
      
      - parameter inDevice: The device that we are comparing.
      

@@ -21,4 +21,5 @@ Little Green Viper Software Development LLC: https://littlegreenviper.com
 */
 
 /* [Details here](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW20) */
-"NSBluetoothPeripheralUsageDescription" = "The App Needs to Connect to Bluetooth Devices.";
+"NSBluetoothAlwaysUsageDescription"     = "The App Needs to Connect to Other Instances of this App.";
+"NSBluetoothPeripheralUsageDescription" = "The App Needs to Connect to Other Instances of this App.";
