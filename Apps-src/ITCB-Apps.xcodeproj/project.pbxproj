@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D40B434023F381F100CFE862 /* Bluetooth 8-Ball.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		D40B434F23F381F200CFE862 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D40B434E23F381F200CFE862 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D40B434F23F381F200CFE862 /* Watch 8-Ball App Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D40B434E23F381F200CFE862 /* Watch 8-Ball App Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D40B437523F3836900CFE862 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D40B437223F3836900CFE862 /* Interface.storyboard */; };
 		D40B437623F3836900CFE862 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D40B437423F3836900CFE862 /* Assets.xcassets */; };
 		D40FF5BF2406A1C200349E77 /* ITCB_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D40FF5BE2406A1C200349E77 /* ITCB_AppDelegate.swift */; };
@@ -26,7 +26,6 @@
 		D41DD51F2401D94500A99087 /* ITCB_SDK_IOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D41DD51D2401D94500A99087 /* ITCB_SDK_IOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D420990C2409B1F600C4CCE5 /* ITCB_Main_Central_Device_InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42099082409B1F600C4CCE5 /* ITCB_Main_Central_Device_InterfaceController.swift */; };
 		D420990D2409BEE900C4CCE5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4BC05B223F347FB008266BC /* Localizable.strings */; };
-		D452A2E523F0DAEC00016D71 /* Warnings.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = D452A2E423F0DAEC00016D71 /* Warnings.xcconfig */; };
 		D452A2F323F0DB8500016D71 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D452A2EE23F0DB8500016D71 /* InfoPlist.strings */; };
 		D452A2F423F0DB8500016D71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D452A2F023F0DB8500016D71 /* Main.storyboard */; };
 		D464CBF023FDCDD100229FAA /* ITCB_SDK_Mac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4FC12BB23F7363A00C3ED12 /* ITCB_SDK_Mac.framework */; };
@@ -144,7 +143,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D40B434F23F381F200CFE862 /* Watch Extension.appex in Embed App Extensions */,
+				D40B434F23F381F200CFE862 /* Watch 8-Ball App Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -198,7 +197,7 @@
 /* Begin PBXFileReference section */
 		D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bluetooth 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D40B434E23F381F200CFE862 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D40B434E23F381F200CFE862 /* Watch 8-Ball App Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch 8-Ball App Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D40B437323F3836900CFE862 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = App/Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		D40B437423F3836900CFE862 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = "<group>"; };
 		D40B437723F3838700CFE862 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = App/Meta/Info.plist; sourceTree = "<group>"; };
@@ -240,7 +239,7 @@
 		D4CFE80923FEB75C003D2BFA /* ITCB_Peripheral_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Peripheral_ViewController.swift; sourceTree = "<group>"; };
 		D4CFE80B23FEBB78003D2BFA /* ITCB_Base_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Base_ViewController.swift; sourceTree = "<group>"; };
 		D4CFE80D23FEBD7C003D2BFA /* ITCB_Base_WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Base_WindowController.swift; sourceTree = "<group>"; };
-		D4D5F5C923EEF33400E4F52B /* ITCB-Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ITCB-Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4D5F5C923EEF33400E4F52B /* Mac 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E05CE82407FF4F00AF6BCA /* ITCB_TVOS_Central_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_TVOS_Central_ViewController.swift; sourceTree = "<group>"; };
 		D4E05CE92407FF4F00AF6BCA /* ITCB_TVOS_Central_Device_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_TVOS_Central_Device_ViewController.swift; sourceTree = "<group>"; };
 		D4E05CEB2407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Mode_Selection_ViewController.swift; sourceTree = "<group>"; };
@@ -640,11 +639,11 @@
 		D4D5F5CA23EEF33400E4F52B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D4D5F5C923EEF33400E4F52B /* ITCB-Mac.app */,
+				D4D5F5C923EEF33400E4F52B /* Mac 8-Ball.app */,
 				D4BC057C23F34350008266BC /* Bluetooth 8-Ball.app */,
 				D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */,
 				D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */,
-				D40B434E23F381F200CFE862 /* Watch Extension.appex */,
+				D40B434E23F381F200CFE862 /* Watch 8-Ball App Extension.appex */,
 				D4195F8723F4533E0031A99E /* Bluetooth 8-Ball.app */,
 			);
 			name = Products;
@@ -750,9 +749,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D40B433B23F381F100CFE862 /* ITCB-Watch */ = {
+		D40B433B23F381F100CFE862 /* Watch 8-Ball */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D40B436723F381F300CFE862 /* Build configuration list for PBXNativeTarget "ITCB-Watch" */;
+			buildConfigurationList = D40B436723F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball" */;
 			buildPhases = (
 				D40B435F23F381F300CFE862 /* Embed Watch Content */,
 			);
@@ -761,14 +760,14 @@
 			dependencies = (
 				D40B434223F381F100CFE862 /* PBXTargetDependency */,
 			);
-			name = "ITCB-Watch";
+			name = "Watch 8-Ball";
 			productName = Watch;
 			productReference = D40B433C23F381F100CFE862 /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application.watchapp2-container";
 		};
-		D40B433E23F381F100CFE862 /* Watch App */ = {
+		D40B433E23F381F100CFE862 /* Watch 8-Ball App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D40B436623F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch App" */;
+			buildConfigurationList = D40B436623F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball App" */;
 			buildPhases = (
 				D40B433D23F381F100CFE862 /* Resources */,
 				D40B436223F381F300CFE862 /* Embed App Extensions */,
@@ -778,14 +777,14 @@
 			dependencies = (
 				D40B435123F381F200CFE862 /* PBXTargetDependency */,
 			);
-			name = "Watch App";
+			name = "Watch 8-Ball App";
 			productName = "Watch WatchKit App";
 			productReference = D40B433F23F381F100CFE862 /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application.watchapp2";
 		};
-		D40B434D23F381F200CFE862 /* Watch Extension */ = {
+		D40B434D23F381F200CFE862 /* Watch 8-Ball App Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D40B436523F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildConfigurationList = D40B436523F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball App Extension" */;
 			buildPhases = (
 				D40B438923F3856000CFE862 /* SwiftLint */,
 				D40B434A23F381F200CFE862 /* Sources */,
@@ -797,14 +796,14 @@
 			);
 			dependencies = (
 			);
-			name = "Watch Extension";
+			name = "Watch 8-Ball App Extension";
 			productName = "Watch WatchKit Extension";
-			productReference = D40B434E23F381F200CFE862 /* Watch Extension.appex */;
+			productReference = D40B434E23F381F200CFE862 /* Watch 8-Ball App Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
 		};
-		D4195F8623F4533E0031A99E /* ITCB-TV */ = {
+		D4195F8623F4533E0031A99E /* TVOS 8-Ball */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4195F9823F4533E0031A99E /* Build configuration list for PBXNativeTarget "ITCB-TV" */;
+			buildConfigurationList = D4195F9823F4533E0031A99E /* Build configuration list for PBXNativeTarget "TVOS 8-Ball" */;
 			buildPhases = (
 				D4195F8323F4533E0031A99E /* Sources */,
 				D4195F8423F4533E0031A99E /* Frameworks */,
@@ -815,14 +814,14 @@
 			);
 			dependencies = (
 			);
-			name = "ITCB-TV";
+			name = "TVOS 8-Ball";
 			productName = "ITCB-TV";
 			productReference = D4195F8723F4533E0031A99E /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4BC057B23F34350008266BC /* ITCB-iOS */ = {
+		D4BC057B23F34350008266BC /* iOS 8-Ball */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4BC058F23F34351008266BC /* Build configuration list for PBXNativeTarget "ITCB-iOS" */;
+			buildConfigurationList = D4BC058F23F34351008266BC /* Build configuration list for PBXNativeTarget "iOS 8-Ball" */;
 			buildPhases = (
 				D40B438823F3854900CFE862 /* SwiftLint */,
 				D4BC057823F34350008266BC /* Sources */,
@@ -834,14 +833,14 @@
 			);
 			dependencies = (
 			);
-			name = "ITCB-iOS";
+			name = "iOS 8-Ball";
 			productName = iOS;
 			productReference = D4BC057C23F34350008266BC /* Bluetooth 8-Ball.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D4D5F5C823EEF33400E4F52B /* ITCB-Mac */ = {
+		D4D5F5C823EEF33400E4F52B /* Mac 8-Ball */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D4D5F5D923EEF33500E4F52B /* Build configuration list for PBXNativeTarget "ITCB-Mac" */;
+			buildConfigurationList = D4D5F5D923EEF33500E4F52B /* Build configuration list for PBXNativeTarget "Mac 8-Ball" */;
 			buildPhases = (
 				D4E2709C23EF49120072DC05 /* SwiftLint */,
 				D4D5F5C523EEF33400E4F52B /* Sources */,
@@ -854,9 +853,9 @@
 			dependencies = (
 				D4FC12BF23F7364400C3ED12 /* PBXTargetDependency */,
 			);
-			name = "ITCB-Mac";
+			name = "Mac 8-Ball";
 			productName = IntroToCoreBluetooth;
-			productReference = D4D5F5C923EEF33400E4F52B /* ITCB-Mac.app */;
+			productReference = D4D5F5C923EEF33400E4F52B /* Mac 8-Ball.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -867,7 +866,7 @@
 			attributes = {
 				CLASSPREFIX = ITCB_;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Little Green Viper Software Development LLC";
 				TargetAttributes = {
 					D40B433B23F381F100CFE862 = {
@@ -912,12 +911,12 @@
 			);
 			projectRoot = "";
 			targets = (
-				D4D5F5C823EEF33400E4F52B /* ITCB-Mac */,
-				D4BC057B23F34350008266BC /* ITCB-iOS */,
-				D4195F8623F4533E0031A99E /* ITCB-TV */,
-				D40B433B23F381F100CFE862 /* ITCB-Watch */,
-				D40B433E23F381F100CFE862 /* Watch App */,
-				D40B434D23F381F200CFE862 /* Watch Extension */,
+				D4D5F5C823EEF33400E4F52B /* Mac 8-Ball */,
+				D4BC057B23F34350008266BC /* iOS 8-Ball */,
+				D4195F8623F4533E0031A99E /* TVOS 8-Ball */,
+				D40B433B23F381F100CFE862 /* Watch 8-Ball */,
+				D40B433E23F381F100CFE862 /* Watch 8-Ball App */,
+				D40B434D23F381F200CFE862 /* Watch 8-Ball App Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -1004,7 +1003,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4BC05B423F347FB008266BC /* Localizable.strings in Resources */,
-				D452A2E523F0DAEC00016D71 /* Warnings.xcconfig in Resources */,
 				D452A2F423F0DB8500016D71 /* Main.storyboard in Resources */,
 				D4950AB22402E08B00D9789B /* SharedAssets.xcassets in Resources */,
 				D452A2F323F0DB8500016D71 /* InfoPlist.strings in Resources */,
@@ -1137,12 +1135,12 @@
 /* Begin PBXTargetDependency section */
 		D40B434223F381F100CFE862 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D40B433E23F381F100CFE862 /* Watch App */;
+			target = D40B433E23F381F100CFE862 /* Watch 8-Ball App */;
 			targetProxy = D40B434123F381F100CFE862 /* PBXContainerItemProxy */;
 		};
 		D40B435123F381F200CFE862 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D40B434D23F381F200CFE862 /* Watch Extension */;
+			target = D40B434D23F381F200CFE862 /* Watch 8-Ball App Extension */;
 			targetProxy = D40B435023F381F200CFE862 /* PBXContainerItemProxy */;
 		};
 		D4FC12BF23F7364400C3ED12 /* PBXTargetDependency */ = {
@@ -1308,7 +1306,7 @@
 				);
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball.extension";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "Watch 8-Ball App Extension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1334,7 +1332,7 @@
 				);
 				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Watch.8-ball.extension";
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "Watch 8-Ball App Extension";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -1571,7 +1569,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Mac/Meta/Info.plist;
@@ -1582,7 +1580,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Mac.8-ball";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mac.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1601,7 +1599,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Mac/Meta/Info.plist;
@@ -1612,7 +1610,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MARKETING_VERSION = 1.1.1;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.littlegreenviper.Mac.8-ball";
+				PRODUCT_BUNDLE_IDENTIFIER = "Mac.8-ball";
 				PRODUCT_MODULE_NAME = ITCB_Mac;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1624,7 +1622,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D40B436523F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+		D40B436523F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball App Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D40B436323F381F300CFE862 /* Debug */,
@@ -1633,7 +1631,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D40B436623F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch App" */ = {
+		D40B436623F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D40B436023F381F300CFE862 /* Debug */,
@@ -1642,7 +1640,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D40B436723F381F300CFE862 /* Build configuration list for PBXNativeTarget "ITCB-Watch" */ = {
+		D40B436723F381F300CFE862 /* Build configuration list for PBXNativeTarget "Watch 8-Ball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D40B435D23F381F300CFE862 /* Debug */,
@@ -1651,7 +1649,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4195F9823F4533E0031A99E /* Build configuration list for PBXNativeTarget "ITCB-TV" */ = {
+		D4195F9823F4533E0031A99E /* Build configuration list for PBXNativeTarget "TVOS 8-Ball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4195F9623F4533E0031A99E /* Debug */,
@@ -1660,7 +1658,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4BC058F23F34351008266BC /* Build configuration list for PBXNativeTarget "ITCB-iOS" */ = {
+		D4BC058F23F34351008266BC /* Build configuration list for PBXNativeTarget "iOS 8-Ball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4BC058D23F34351008266BC /* Debug */,
@@ -1678,7 +1676,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D4D5F5D923EEF33500E4F52B /* Build configuration list for PBXNativeTarget "ITCB-Mac" */ = {
+		D4D5F5D923EEF33500E4F52B /* Build configuration list for PBXNativeTarget "Mac 8-Ball" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D4D5F5DA23EEF33500E4F52B /* Debug */,

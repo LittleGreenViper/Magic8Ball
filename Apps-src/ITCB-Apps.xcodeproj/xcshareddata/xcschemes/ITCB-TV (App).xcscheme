@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D4195F8623F4533E0031A99E"
-               BuildableName = "ITCB-TV.app"
-               BlueprintName = "ITCB-TV"
+               BuildableName = "Bluetooth 8-Ball.app"
+               BlueprintName = "TVOS 8-Ball"
                ReferencedContainer = "container:ITCB-Apps.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4195F8623F4533E0031A99E"
-            BuildableName = "ITCB-TV.app"
-            BlueprintName = "ITCB-TV"
+            BuildableName = "Bluetooth 8-Ball.app"
+            BlueprintName = "TVOS 8-Ball"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4195F8623F4533E0031A99E"
-            BuildableName = "ITCB-TV.app"
-            BlueprintName = "ITCB-TV"
+            BuildableName = "Bluetooth 8-Ball.app"
+            BlueprintName = "TVOS 8-Ball"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

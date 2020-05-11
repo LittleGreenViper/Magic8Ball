@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-               BuildableName = "ITCB-Mac.app"
-               BlueprintName = "ITCB-Mac"
+               BuildableName = "Mac 8-Ball.app"
+               BlueprintName = "Mac 8-Ball"
                ReferencedContainer = "container:ITCB-Apps.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-            BuildableName = "ITCB-Mac.app"
-            BlueprintName = "ITCB-Mac"
+            BuildableName = "Mac 8-Ball.app"
+            BlueprintName = "Mac 8-Ball"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-            BuildableName = "ITCB-Mac.app"
-            BlueprintName = "ITCB-Mac"
+            BuildableName = "Mac 8-Ball.app"
+            BlueprintName = "Mac 8-Ball"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
