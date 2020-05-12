@@ -341,7 +341,7 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
         if  let answerData = inCharacteristic.value,
             let answerString = String(data: answerData, encoding: .utf8),
             !answerString.isEmpty {
-            _timeoutTimer.invalidate()  // Stop our timeout timer.
+            _timeoutTimer?.invalidate()  // Stop our timeout timer.
             _timeoutTimer = nil
             inPeripheral.setNotifyValue(false, for: inCharacteristic)
             answer = answerString
@@ -365,7 +365,7 @@ extension ITCB_SDK_Device_Peripheral: CBPeripheralDelegate {
                 owner._sendErrorMessageToAllObservers(error: .sendFailed(ITCB_RejectionReason.peripheralError(nil)))
             }
         } else {
-            _timeoutTimer.invalidate()  // Stop our timeout timer. We only need the one error.
+            _timeoutTimer?.invalidate()  // Stop our timeout timer. We only need the one error.
             _timeoutTimer = nil
             if let error = inError as? CBATTError {
                 switch error {

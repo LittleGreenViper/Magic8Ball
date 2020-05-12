@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-               BuildableName = "Mac 8-Ball.app"
-               BlueprintName = "Mac 8-Ball"
+               BlueprintIdentifier = "D4BC057B23F34350008266BC"
+               BuildableName = "Bluetooth 8-Ball On Mobile.app"
+               BlueprintName = "Bluetooth 8-Ball On Mobile"
                ReferencedContainer = "container:ITCB-Apps.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-            BuildableName = "Mac 8-Ball.app"
-            BlueprintName = "Mac 8-Ball"
+            BlueprintIdentifier = "D4BC057B23F34350008266BC"
+            BuildableName = "Bluetooth 8-Ball On Mobile.app"
+            BlueprintName = "Bluetooth 8-Ball On Mobile"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D4D5F5C823EEF33400E4F52B"
-            BuildableName = "Mac 8-Ball.app"
-            BlueprintName = "Mac 8-Ball"
+            BlueprintIdentifier = "D4BC057B23F34350008266BC"
+            BuildableName = "Bluetooth 8-Ball On Mobile.app"
+            BlueprintName = "Bluetooth 8-Ball On Mobile"
             ReferencedContainer = "container:ITCB-Apps.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

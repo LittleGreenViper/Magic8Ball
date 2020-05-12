@@ -86,8 +86,9 @@ class ITCB_AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             if nil != presentedBy {
-                let alertController = UIAlertController(title: inHeader.localizedVariant, message: inMessage.localizedVariant, preferredStyle: .actionSheet)
-                
+                let style: UIAlertController.Style = ((.pad == presentedBy?.traitCollection.userInterfaceIdiom) || false) ? .alert : .actionSheet
+                let alertController = UIAlertController(title: inHeader, message: inMessage, preferredStyle: style)
+
                 let okAction = UIAlertAction(title: "SLUG-OK-BUTTON-TEXT".localizedVariant, style: UIAlertAction.Style.cancel, handler: nil)
                 
                 alertController.addAction(okAction)
