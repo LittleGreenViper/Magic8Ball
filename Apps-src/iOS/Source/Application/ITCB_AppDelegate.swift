@@ -41,6 +41,35 @@ class ITCB_AppDelegate: UIResponder, UIApplicationDelegate {
     
     /* ################################################################## */
     /**
+     This unwinds our error report by parsing it for associated values.
+     */
+    class func unwindErrorReport(_ inError: Error) -> String? {
+        var errorDesc: String?
+
+        if let error = inError as? ITCB_Errors {
+            switch error {
+            case .sendFailed(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            case .coreBluetooth(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            default:
+                errorDesc = error.localizedDescription
+            }
+        } else if let error = inError as? ITCB_RejectionReason {
+            errorDesc = error.localizedDescription
+        } else {
+            errorDesc = inError.localizedDescription
+        }
+        
+        return errorDesc
+    }
+
+    /* ################################################################## */
+    /**
      This displays a simple alert, with an OK button.
      
      - parameter header: The header to display at the top.
@@ -82,7 +111,7 @@ class ITCB_AppDelegate: UIResponder, UIApplicationDelegate {
     var deviceSDKInstance: ITCB_SDK_Protocol! {
         didSet {
             if  nil != deviceSDKInstance {
-                self.deviceSDKInstance.localName = UIDevice.current.name
+                deviceSDKInstance.localName = UIDevice.current.name
             }
         }
     }
@@ -115,6 +144,21 @@ extension ITCB_AppDelegate {
      */
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the app is about to enter the background.
+     
+     We use this to kill the SDK.
+     */
+    func applicationDidEnterBackground(_: UIApplication) {
+        if  let navigationController = mainNavigationController,
+            let mainController = modeSelectionViewController {
+            navigationController.setViewControllers([mainController], animated: false)
+        }
+        
+        deviceSDKInstance = nil
     }
     
     /* ################################################################## */

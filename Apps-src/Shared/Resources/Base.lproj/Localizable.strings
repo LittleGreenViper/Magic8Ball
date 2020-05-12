@@ -74,6 +74,11 @@ Little Green Viper Software Development LLC: https://littlegreenviper.com
 "ITCB-SDK-ERROR-UNKNOWN"            =   "Unknown Error";
 "ITCB-SDK-ERROR-BLUETOOTH"          =   "Bluetooth Error";
 "ITCB-SDK-ERROR-SEND-FAILURE"       =   "Failed to Send";
+"ITCB-SDK-REJECT-OFFLINE"           =   "The device is offline";
+"ITCB-SDK-REJECT-BUSY"              =   "The device is busy";
+"ITCB-SDK-REJECT-NO-QUESTION-MARK"  =   "Please rephrase as a question";
+"ITCB-SDK-REJECT-PERIPHERAL-ERROR"  =   "There is some error internal to the other device";
+"ITCB-SDK-REJECT-UNKNOWN"           =   "The device rejected the connection";
 
 // Various strings for use throughout the apps.
 "SLUG-WAIT"                         =   "WAITING FOR QUESTION";

@@ -196,7 +196,7 @@ extension ITCB_Main_Central_InterfaceController: ITCB_Observer_Central_Protocol 
      - parameter sdk: The SDK instance that experienced the error.
      */
     func errorOccurred(_ inError: ITCB_Errors, sdk inSDKInstance: ITCB_SDK_Protocol) {
-        displayAlert(header: "SLUG-ERROR", message: inError.localizedDescription)
+        displayAlert(header: "SLUG-ERROR", message: ITCB_ExtensionDelegate.unwindErrorReport(inError) ?? "")
     }
     
     /* ################################################################## */

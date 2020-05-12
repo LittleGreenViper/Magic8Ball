@@ -77,6 +77,6 @@ extension ITCB_Base_ViewController {
      - parameter message: A String, containing whatever messge is to be displayed below the header.
      */
     func displayAlert(header inHeader: String, message inMessage: String = "") {
-        ITCB_AppDelegate.displayAlert(header: inHeader, message: inMessage, presentedBy: self)
+        ITCB_AppDelegate.displayAlert(header: inHeader, message: inMessage)
     }
 }

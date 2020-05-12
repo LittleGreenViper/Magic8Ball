@@ -35,6 +35,35 @@ class ITCB_ExtensionDelegate: NSObject, WKExtensionDelegate {
             }
         }
     }
+    
+    /* ################################################################## */
+    /**
+     This unwinds our error report by parsing it for associated values.
+     */
+    class func unwindErrorReport(_ inError: Error) -> String? {
+        var errorDesc: String?
+
+        if let error = inError as? ITCB_Errors {
+            switch error {
+            case .sendFailed(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            case .coreBluetooth(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            default:
+                errorDesc = error.localizedDescription
+            }
+        } else if let error = inError as? ITCB_RejectionReason {
+            errorDesc = error.localizedDescription
+        } else {
+            errorDesc = inError.localizedDescription
+        }
+        
+        return errorDesc
+    }
 
     /* ################################################################## */
     /**

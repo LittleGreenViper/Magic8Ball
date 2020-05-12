@@ -64,7 +64,6 @@
 		D4DBD5CB23F41F80001C9DE5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D452A2EE23F0DB8500016D71 /* InfoPlist.strings */; };
 		D4E05CEF2407FF4F00AF6BCA /* ITCB_TVOS_Central_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E05CE82407FF4F00AF6BCA /* ITCB_TVOS_Central_ViewController.swift */; };
 		D4E05CF02407FF4F00AF6BCA /* ITCB_TVOS_Central_Device_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E05CE92407FF4F00AF6BCA /* ITCB_TVOS_Central_Device_ViewController.swift */; };
-		D4E05CF12407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E05CEB2407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift */; };
 		D4E05CF22407FF4F00AF6BCA /* ITCB_TVOS_About_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E05CEC2407FF4F00AF6BCA /* ITCB_TVOS_About_ViewController.swift */; };
 		D4E05CF32407FF4F00AF6BCA /* ITCB_Base_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E05CED2407FF4F00AF6BCA /* ITCB_Base_ViewController.swift */; };
 		D4E6777C23EEF4C40066B0C0 /* ITCB_AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6777423EEF4C40066B0C0 /* ITCB_AppDelegate.swift */; };
@@ -242,7 +241,6 @@
 		D4D5F5C923EEF33400E4F52B /* Mac 8-Ball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mac 8-Ball.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4E05CE82407FF4F00AF6BCA /* ITCB_TVOS_Central_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_TVOS_Central_ViewController.swift; sourceTree = "<group>"; };
 		D4E05CE92407FF4F00AF6BCA /* ITCB_TVOS_Central_Device_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_TVOS_Central_Device_ViewController.swift; sourceTree = "<group>"; };
-		D4E05CEB2407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Mode_Selection_ViewController.swift; sourceTree = "<group>"; };
 		D4E05CEC2407FF4F00AF6BCA /* ITCB_TVOS_About_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_TVOS_About_ViewController.swift; sourceTree = "<group>"; };
 		D4E05CED2407FF4F00AF6BCA /* ITCB_Base_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_Base_ViewController.swift; sourceTree = "<group>"; };
 		D4E6777423EEF4C40066B0C0 /* ITCB_AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_AppDelegate.swift; sourceTree = "<group>"; };
@@ -680,7 +678,6 @@
 		D4E05CEA2407FF4F00AF6BCA /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				D4E05CEB2407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift */,
 				D4E05CEC2407FF4F00AF6BCA /* ITCB_TVOS_About_ViewController.swift */,
 				D4E05CED2407FF4F00AF6BCA /* ITCB_Base_ViewController.swift */,
 			);
@@ -1089,7 +1086,6 @@
 			files = (
 				D4E05CEF2407FF4F00AF6BCA /* ITCB_TVOS_Central_ViewController.swift in Sources */,
 				D40FF5C22406A4D300349E77 /* ITCB_Utilities.swift in Sources */,
-				D4E05CF12407FF4F00AF6BCA /* ITCB_Mode_Selection_ViewController.swift in Sources */,
 				D4E05CF32407FF4F00AF6BCA /* ITCB_Base_ViewController.swift in Sources */,
 				D40FF5BF2406A1C200349E77 /* ITCB_AppDelegate.swift in Sources */,
 				D4E05CF22407FF4F00AF6BCA /* ITCB_TVOS_About_ViewController.swift in Sources */,
@@ -1348,7 +1344,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = TV/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1372,7 +1368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = TV/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1395,7 +1391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = iOS/Meta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1421,7 +1417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3000;
+				CURRENT_PROJECT_VERSION = 3001;
 				DEVELOPMENT_TEAM = P53V4JS928;
 				INFOPLIST_FILE = iOS/Meta/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

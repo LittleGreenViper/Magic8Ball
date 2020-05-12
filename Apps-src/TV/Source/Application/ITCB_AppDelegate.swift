@@ -24,7 +24,22 @@ import UIKit
 import ITCB_SDK_TVOS
 
 /* ###################################################################################################################################### */
-// MARK: 
+// MARK: - Quick N' Dirty UIView Controller Extension
+/* ###################################################################################################################################### */
+/**
+ Quick and dirty extension of UIViewController to allow us to unwind the hierarchy.
+ 
+ Don't try this at home, kids. This will work for us, because we have a simple, direct view controller setup. This is not flexible enough to handle anything more complicated.
+ */
+extension UIViewController {
+    var topViewController: UIViewController? {
+        let presented = presentedViewController
+        return nil != presented ? presented : self
+    }
+}
+
+/* ###################################################################################################################################### */
+// MARK: - The Main app delegate
 /* ###################################################################################################################################### */
 /**
  */
@@ -46,25 +61,48 @@ class ITCB_AppDelegate: UIResponder, UIApplicationDelegate {
      - parameter message: A String, containing whatever messge is to be displayed below the header.
      - parameter presentedBy: An optional UIViewController object that is acting as the presenter context for the alert. If nil, we use the top controller of the Navigation stack.
      */
-    class func displayAlert(header inHeader: String, message inMessage: String = "", presentedBy inPresentingViewController: UIViewController! = nil) {
+    class func displayAlert(header inHeader: String, message inMessage: String = "") {
         // This ensures that we are on the main thread.
         DispatchQueue.main.async {
-            var presentedBy = inPresentingViewController
-            
-            if nil == presentedBy {
-                presentedBy = (UIApplication.shared.windows.filter { $0.isKeyWindow }.first)?.rootViewController
-            }
-            
-            if nil != presentedBy {
+            if let presentedBy = appDelegate?.window?.rootViewController?.topViewController {
                 let alertController = UIAlertController(title: inHeader.localizedVariant, message: inMessage.localizedVariant, preferredStyle: .actionSheet)
                 
                 let okAction = UIAlertAction(title: "SLUG-OK-BUTTON-TEXT".localizedVariant, style: UIAlertAction.Style.cancel, handler: nil)
                 
                 alertController.addAction(okAction)
                 
-                presentedBy?.present(alertController, animated: true, completion: nil)
+                presentedBy.present(alertController, animated: true, completion: nil)
             }
         }
+    }
+    
+    /* ################################################################## */
+    /**
+     This unwinds our error report by parsing it for associated values.
+     */
+    class func unwindErrorReport(_ inError: Error) -> String? {
+        var errorDesc: String?
+
+        if let error = inError as? ITCB_Errors {
+            switch error {
+            case .sendFailed(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            case .coreBluetooth(let errorReport):
+                if let errReport = errorReport {
+                    errorDesc = unwindErrorReport(errReport)
+                }
+            default:
+                errorDesc = error.localizedDescription
+            }
+        } else if let error = inError as? ITCB_RejectionReason {
+            errorDesc = error.localizedDescription
+        } else {
+            errorDesc = inError.localizedDescription
+        }
+        
+        return errorDesc
     }
     
     /* ################################################################## */
@@ -82,13 +120,28 @@ class ITCB_AppDelegate: UIResponder, UIApplicationDelegate {
 
     /* ################################################################## */
     /**
+     This is the window instance for this app.
      */
     var window: UIWindow?
 
     /* ################################################################## */
     /**
+     Called after the app has completed startup.
+     
+     - parameters: ignored
+     - returns: True (always)
      */
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
+    }
+    
+    /* ################################################################## */
+    /**
+     Called when the app is about to enter the background.
+     
+     We use this to kill the SDK.
+     */
+    func applicationDidEnterBackground(_: UIApplication) {
+        deviceSDKInstance = nil
     }
 }

@@ -376,7 +376,7 @@ public enum ITCB_Errors: Error {
      
      The user app should also extract any associated values.
      */
-    var localizedDescription: String {
+    public var localizedDescription: String {
         var ret: String
         
         switch self {
@@ -469,7 +469,7 @@ public enum ITCB_RejectionReason: Error {
      
      The user app should also extract any associated values (Unknown).
      */
-    var localizedDescription: String {
+    public var localizedDescription: String {
         var ret: String
         
         switch self {

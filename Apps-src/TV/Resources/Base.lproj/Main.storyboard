@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="15705" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCm-4H-9oU">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16096" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GCm-4H-9oU">
     <device id="appleTV" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +10,7 @@
         <!--About View Controller-->
         <scene sceneID="2xT-NW-io1">
             <objects>
-                <viewController id="s30-16-xIV" customClass="ITCB_TVOS_About_ViewController" customModule="ITCB_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="s30-16-xIV" customClass="ITCB_TVOS_About_ViewController" customModule="Bluetooth_8_Ball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8m7-YK-9aB"/>
                         <viewControllerLayoutGuide type="bottom" id="tWT-0x-yda"/>
@@ -67,7 +67,7 @@
         <!--Central View Controller-->
         <scene sceneID="zDO-IX-g29">
             <objects>
-                <viewController id="GCm-4H-9oU" customClass="ITCB_TVOS_Central_ViewController" customModule="ITCB_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="GCm-4H-9oU" customClass="ITCB_TVOS_Central_ViewController" customModule="Bluetooth_8_Ball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cv9-UA-sCa"/>
                         <viewControllerLayoutGuide type="bottom" id="r7H-Cn-7Se"/>
@@ -157,7 +157,7 @@
         <!--Central Device View Controller-->
         <scene sceneID="5oM-kh-hAj">
             <objects>
-                <viewController id="bD4-bp-86p" customClass="ITCB_TVOS_Central_Device_ViewController" customModule="ITCB_TV" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bD4-bp-86p" customClass="ITCB_TVOS_Central_Device_ViewController" customModule="Bluetooth_8_Ball" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nsh-0N-3fP"/>
                         <viewControllerLayoutGuide type="bottom" id="v4s-5U-Nqm"/>
