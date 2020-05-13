@@ -20,10 +20,11 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 Little Green Viper Software Development LLC: https://littlegreenviper.com
 */
 
-/// This file contains an extension that can be shared between the Mac and iOS.
+/// This file contains an extension that can be shared between the Mac and iOS (not Watch or TV, though -remember that Peripheral Mode is only supported for Mac and iOS).
 
 import Foundation
 
+// We need to include the appropriate module for our platform.
 #if os(OSX)
     import ITCB_SDK_Mac
 #else

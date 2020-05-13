@@ -246,7 +246,6 @@
 		D4E6777623EEF4C40066B0C0 /* IntroToCoreBluetooth.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = IntroToCoreBluetooth.entitlements; sourceTree = "<group>"; };
 		D4E6777723EEF4C40066B0C0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4E6777823EEF4C40066B0C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D4FC12AD23F734F600C3ED12 /* ITCB_Mac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ITCB_Mac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4FC12B523F7363A00C3ED12 /* ITCB.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ITCB.xcodeproj; path = "../SDK-src/ITCB.xcodeproj"; sourceTree = "<group>"; };
 		D4FFD7572405B106003D418B /* ITCB_iOS_About_ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITCB_iOS_About_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -400,13 +399,6 @@
 				D436293F24054F3B00A10F6D /* Peripheral */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		D41DD51A2401D94500A99087 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D436293C24054F1500A10F6D /* Main */ = {
@@ -627,7 +619,6 @@
 				D45D681723EEF5B30081EBF1 /* Meta */,
 				D4BC05B623F34947008266BC /* src */,
 				D4D5F5CA23EEF33400E4F52B /* Products */,
-				D41DD51A2401D94500A99087 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -687,7 +678,6 @@
 				D4E6778423EEF51E0066B0C0 /* Source */,
 				D4E6778323EEF5120066B0C0 /* Resources */,
 				D4E6778123EEF4E50066B0C0 /* Meta */,
-				D4FC12AC23F734F600C3ED12 /* Frameworks */,
 			);
 			path = Mac;
 			sourceTree = "<group>";
@@ -718,15 +708,6 @@
 				D464CBEF23FDCD3500229FAA /* View Controllers */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		D4FC12AC23F734F600C3ED12 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				D4FC12AD23F734F600C3ED12 /* ITCB_Mac.framework */,
-			);
-			name = Frameworks;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		D4FC12B623F7363A00C3ED12 /* Products */ = {

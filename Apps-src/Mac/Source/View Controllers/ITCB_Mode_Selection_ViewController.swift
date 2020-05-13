@@ -72,7 +72,7 @@ extension ITCB_Mode_Selection_ViewController {
      
      - parameter: Ignored
      */
-    @IBAction func selectCentralMode(_ : Any) {
+    @IBAction func selectCentralMode(_: Any) {
         if let newCentralViewController = self.storyboard?.instantiateController(withIdentifier: ITCB_CENTRAL_Initial_ViewController.storyboardID) as? ITCB_CENTRAL_Initial_ViewController {
             view.window?.contentViewController = newCentralViewController
             setWindowTitle()
@@ -87,7 +87,7 @@ extension ITCB_Mode_Selection_ViewController {
 
      - parameter: Ignored
      */
-    @IBAction func selectPeripheralMode(_ : Any) {
+    @IBAction func selectPeripheralMode(_: Any) {
         if let newPeripheralViewController = self.storyboard?.instantiateController(withIdentifier: ITCB_Peripheral_ViewController.storyboardID) as? ITCB_Peripheral_ViewController {
             view.window?.contentViewController = newPeripheralViewController
             setWindowTitle()

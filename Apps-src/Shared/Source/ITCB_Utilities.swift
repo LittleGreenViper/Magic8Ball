@@ -26,7 +26,7 @@ import Foundation   // Required for the NS stuff.
 // MARK: - StringProtocol Extension -
 /* ###################################################################################################################################### */
 /**
- These are a variety of cool String extensions that add some great extra cheese on the pizza.
+ We add a computed property that allows us to easily localize (main bundle, Localizable.strings).
  */
 public extension StringProtocol {
     /* ################################################################## */

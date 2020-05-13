@@ -18,13 +18,12 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMA
 CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Little Green Viper Software Development LLC: https://littlegreenviper.com
-*/
-/*
- These declarations are shared between all the apps.
+
+These declarations are shared between all the apps.
  */
 
 // This is how many answers we have available, and can be used to manage an index.
-"SLUG-NUMBER-MAX"               =   "20";
+"SLUG-NUMBER-MAX"                   =   "20";
 
 // These are the answers that are possible from the 8-ball.
 "SLUG-ANSWER-00"                    =   "It is certain.";
